@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D2A726A8-9EE5-4F88-B2B8-94E5025DEA8C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>OGA.Base.My.MyApplication</StartupObject>
-    <RootNamespace>OGA.Base</RootNamespace>
-    <AssemblyName>OGA.Base</AssemblyName>
+    <StartupObject>OGA.DA.Base.My.MyApplication</StartupObject>
+    <RootNamespace>OGA.DA.Base</RootNamespace>
+    <AssemblyName>OGA.DA.Base</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
@@ -23,7 +23,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>OGA.Base.xml</DocumentationFile>
+    <DocumentationFile>OGA.DA.Base.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -33,7 +33,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>OGA.Base.xml</DocumentationFile>
+    <DocumentationFile>OGA.DA.Base.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
