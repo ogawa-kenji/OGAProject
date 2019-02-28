@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B7734D46-3CCF-4941-9033-3B630E90C199}</ProjectGuid>
+    <ProjectGuid>{8F2110A5-3E7B-4B6E-9040-57096A3B0B1B}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>OGA.BL.Base</RootNamespace>
-    <AssemblyName>OGA.BL.Base</AssemblyName>
+    <RootNamespace>OGA.DA</RootNamespace>
+    <AssemblyName>OGA.DA</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
@@ -18,7 +18,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>..\..\bin\</OutputPath>
-    <DocumentationFile>OGA.BL.Base.xml</DocumentationFile>
+    <DocumentationFile>OGA.DA.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
@@ -29,7 +29,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>..\..\bin\</OutputPath>
-    <DocumentationFile>OGA.BL.Base.xml</DocumentationFile>
+    <DocumentationFile>OGA.DA.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
@@ -67,7 +67,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLResult.vb" />
+    <Compile Include="Class1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -102,6 +102,12 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OGA.DA.Base\OGA.DA.Base.vbproj">
+      <Project>{d2a726a8-9ee5-4f88-b2b8-94e5025dea8c}</Project>
+      <Name>OGA.DA.Base</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

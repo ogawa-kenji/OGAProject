@@ -9,7 +9,7 @@
         stb.AppendLine(") ")
 
 
-        db.DBExecute(stb.ToString(), Nothing)
+        'db.DBExecute(stb.ToString(), Nothing)
 
 
     End Sub
