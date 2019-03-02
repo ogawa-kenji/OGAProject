@@ -1,4 +1,5 @@
 ﻿Imports System.Text
+Imports OGA.BI
 Imports OGA.DA.Base
 Public Class TargetDA
     Inherits DataBaseAcess
@@ -30,6 +31,10 @@ Public Class TargetDA
             Return False
         End If
         Return True
+    End Function
+
+    Public Function Selectターゲット() As (DBResult, List(Of ターゲット))
+        Return Me.DBSelect(Of ターゲット)("SELECT * FROM ターゲット ORDER BY 証券コード")
     End Function
 
 

@@ -83,6 +83,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="TargetDA.vb" />
+    <Compile Include="UtilityDA.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -104,6 +105,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OGA.BI\OGA.BI.vbproj">
+      <Project>{54fd4018-bb05-4a74-8bbf-ff1ef6de2209}</Project>
+      <Name>OGA.BI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGA.DA.Base\OGA.DA.Base.vbproj">
       <Project>{d2a726a8-9ee5-4f88-b2b8-94e5025dea8c}</Project>
       <Name>OGA.DA.Base</Name>

@@ -85,6 +85,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="TargetBL.vb" />
+    <Compile Include="UtilityBL.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -106,6 +107,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OGA.BI\OGA.BI.vbproj">
+      <Project>{54fd4018-bb05-4a74-8bbf-ff1ef6de2209}</Project>
+      <Name>OGA.BI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGA.BL.Base\OGA.BL.Base.vbproj">
       <Project>{b7734d46-3ccf-4941-9033-3b630e90c199}</Project>
       <Name>OGA.BL.Base</Name>
@@ -117,6 +122,10 @@
     <ProjectReference Include="..\OGA.DA\OGA.DA.vbproj">
       <Project>{8f2110a5-3e7b-4b6e-9040-57096a3b0b1b}</Project>
       <Name>OGA.DA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGA.Utility\OGA.Utility.vbproj">
+      <Project>{887118e1-6901-44d6-9a4e-3cc58786268d}</Project>
+      <Name>OGA.Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
