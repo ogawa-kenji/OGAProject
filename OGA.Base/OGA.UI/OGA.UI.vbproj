@@ -100,6 +100,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -118,8 +121,15 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Sqlite.DB.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OGA.BL.Base\OGA.BL.Base.vbproj">
+      <Project>{b7734d46-3ccf-4941-9033-3b630e90c199}</Project>
+      <Name>OGA.BL.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGA.BL\OGA.BL.vbproj">
       <Project>{11aedf88-446d-483d-bcff-c81d9e5d962d}</Project>
       <Name>OGA.BL</Name>

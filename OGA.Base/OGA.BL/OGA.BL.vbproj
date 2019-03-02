@@ -49,6 +49,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -83,6 +84,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="TargetBL.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -107,6 +109,10 @@
     <ProjectReference Include="..\OGA.BL.Base\OGA.BL.Base.vbproj">
       <Project>{b7734d46-3ccf-4941-9033-3b630e90c199}</Project>
       <Name>OGA.BL.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OGA.DA.Base\OGA.DA.Base.vbproj">
+      <Project>{d2a726a8-9ee5-4f88-b2b8-94e5025dea8c}</Project>
+      <Name>OGA.DA.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\OGA.DA\OGA.DA.vbproj">
       <Project>{8f2110a5-3e7b-4b6e-9040-57096a3b0b1b}</Project>
