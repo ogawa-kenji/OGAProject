@@ -82,6 +82,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="PriceDA.vb" />
     <Compile Include="TargetDA.vb" />
     <Compile Include="UtilityDA.vb" />
   </ItemGroup>

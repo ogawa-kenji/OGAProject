@@ -1,4 +1,5 @@
 ﻿Imports System.Transactions
+Imports OGA.BI
 Imports OGA.DA
 
 Public Class TargetBL
@@ -14,6 +15,12 @@ Public Class TargetBL
             End If
         End Using
         Return False
+    End Function
+
+    Public Function Getターゲット() As List(Of ターゲット)
+        Using da As New TargetDA
+            Return da.Selectターゲット().Item2
+        End Using
     End Function
 
 End Class

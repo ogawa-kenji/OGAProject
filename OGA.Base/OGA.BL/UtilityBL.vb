@@ -33,5 +33,19 @@ Public Class UtilityBL
         End Using
     End Sub
 
+    Public Function Update株価(prices As List(Of 株価)) As Boolean
+        Using scope As TransactionScope =
+                    New TransactionScope(scopeOption:=TransactionScopeOption.Required, scopeTimeout:=New TimeSpan(0, 30, 0))
+            Using da As New UtilityDA
+                Dim dbresult = da.Update株価(prices)
+                If dbresult.ReturnCd = DBResult.ReturnCds._NORMAL Then
+                    scope.Complete()
+                Else
+                    Return False
+                End If
+            End Using
+        End Using
+        Return True
+    End Function
 
 End Class
