@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="企業情報.vb" />
     <Compile Include="株価.vb" />
+    <Compile Include="移動平均.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

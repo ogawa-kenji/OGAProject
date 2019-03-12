@@ -32,6 +32,9 @@ Partial Class ChartForm
         Me.dgv企業情報 = New System.Windows.Forms.DataGridView()
         Me.証券コード = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.企業名 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dtp開始 = New System.Windows.Forms.DateTimePicker()
+        Me.dtp終了 = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.chartPrice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv企業情報, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -110,11 +113,39 @@ Partial Class ChartForm
         Me.企業名.Name = "企業名"
         Me.企業名.ReadOnly = True
         '
+        'dtp開始
+        '
+        Me.dtp開始.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp開始.Location = New System.Drawing.Point(447, 15)
+        Me.dtp開始.Name = "dtp開始"
+        Me.dtp開始.Size = New System.Drawing.Size(127, 22)
+        Me.dtp開始.TabIndex = 5
+        '
+        'dtp終了
+        '
+        Me.dtp終了.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp終了.Location = New System.Drawing.Point(609, 15)
+        Me.dtp終了.Name = "dtp終了"
+        Me.dtp終了.Size = New System.Drawing.Size(127, 22)
+        Me.dtp終了.TabIndex = 5
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(580, 18)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(22, 15)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "～"
+        '
         'ChartForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.dtp終了)
+        Me.Controls.Add(Me.dtp開始)
         Me.Controls.Add(Me.dgv企業情報)
         Me.Controls.Add(Me.chartPrice)
         Me.Controls.Add(Me.btnNext)
@@ -136,4 +167,7 @@ Partial Class ChartForm
     Friend WithEvents dgv企業情報 As DataGridView
     Friend WithEvents 証券コード As DataGridViewTextBoxColumn
     Friend WithEvents 企業名 As DataGridViewTextBoxColumn
+    Friend WithEvents dtp開始 As DateTimePicker
+    Friend WithEvents dtp終了 As DateTimePicker
+    Friend WithEvents Label1 As Label
 End Class
