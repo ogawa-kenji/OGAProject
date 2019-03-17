@@ -63,6 +63,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="アラート.vb" />
     <Compile Include="ターゲット.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -79,6 +80,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="バックテスト.vb" />
+    <Compile Include="ルール.vb" />
     <Compile Include="企業情報.vb" />
     <Compile Include="株価.vb" />
     <Compile Include="移動平均.vb" />

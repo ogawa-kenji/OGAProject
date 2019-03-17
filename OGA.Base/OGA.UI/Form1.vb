@@ -1,4 +1,8 @@
-﻿Public Class Form1
+﻿Imports OGA.BI
+Imports OGA.BL
+Imports OGA.Utility
+
+Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim bl As New OGA.BL.TargetBL
         bl.CreateTable()
@@ -20,6 +24,35 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim bl As New BL.UtilityBL
         bl.Update企業情報()
+
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim pricebl As New PriceBL
+        Dim prices As List(Of 移動平均)
+        prices = pricebl.Select移動平均(1775)
+
+        Dim beginDate As DateTime = Now.Date.AddMonths(-120)
+        Dim endDate As DateTime = prices(prices.Count - 1).日付
+        Dim rule As New Rule1(prices, -0.5D, 30D, beginDate, endDate)
+        While beginDate <= endDate
+            If rule.CheckBuyRule(beginDate) Then
+                rule.Buy(beginDate)
+            End If
+            If rule.CheckSellRule(beginDate) Then
+                rule.Sell(beginDate)
+            End If
+            rule.経過日数 += 1
+            rule.TestAdd(beginDate)
+            beginDate = beginDate.AddDays(1)
+        End While
+
+        Debug.WriteLine(String.Format("{0} 評価:{1} 現金:{2} 株数:{3}",
+                                          beginDate.ToString("yyyy/MM/dd"),
+                                          rule.評価額,
+                                          rule.現金,
+                                          rule.株数))
+
 
     End Sub
 End Class

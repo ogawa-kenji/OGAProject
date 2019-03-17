@@ -22,9 +22,9 @@ Partial Class ChartForm
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.btnNext = New System.Windows.Forms.Button()
@@ -69,16 +69,16 @@ Partial Class ChartForm
         Me.chartPrice.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea2.Name = "ChartArea1"
-        Me.chartPrice.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.chartPrice.Legends.Add(Legend2)
+        ChartArea1.Name = "ChartArea1"
+        Me.chartPrice.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.chartPrice.Legends.Add(Legend1)
         Me.chartPrice.Location = New System.Drawing.Point(190, 43)
         Me.chartPrice.Name = "chartPrice"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.chartPrice.Series.Add(Series2)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.chartPrice.Series.Add(Series1)
         Me.chartPrice.Size = New System.Drawing.Size(598, 395)
         Me.chartPrice.TabIndex = 3
         Me.chartPrice.Text = "Chart1"

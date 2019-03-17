@@ -77,6 +77,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlertForm.Designer.vb">
+      <DependentUpon>AlertForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AlertForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackTestForm.Designer.vb">
+      <DependentUpon>BackTestForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BackTestForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ChartForm.Designer.vb">
       <DependentUpon>ChartForm.vb</DependentUpon>
     </Compile>
@@ -88,6 +100,12 @@
     </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuForm.Designer.vb">
+      <DependentUpon>MenuForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -113,11 +131,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AlertForm.resx">
+      <DependentUpon>AlertForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackTestForm.resx">
+      <DependentUpon>BackTestForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChartForm.resx">
       <DependentUpon>ChartForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

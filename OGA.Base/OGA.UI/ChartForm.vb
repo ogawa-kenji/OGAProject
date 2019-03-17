@@ -121,7 +121,7 @@ Public Class ChartForm
         End If
 
         dispCode = q.FirstOrDefault().証券コード
-        DisplayChar(dispCode)
+        DisplayChart(dispCode)
 
     End Sub
 
@@ -142,11 +142,11 @@ Public Class ChartForm
         End If
 
         dispCode = q.FirstOrDefault().証券コード
-        DisplayChar(dispCode)
+        DisplayChart(dispCode)
 
     End Sub
 
-    Private Sub DisplayChar(証券コード As Decimal)
+    Private Sub DisplayChart(証券コード As Decimal)
         For Each s In chartPrice.Series
             s.Points.Clear()
         Next
@@ -245,7 +245,9 @@ Public Class ChartForm
         If e.RowIndex <> -1 Then
             Dim companies As List(Of 企業情報) = CType(Me.dgv企業情報.DataSource, List(Of 企業情報))
             dispCode = companies(e.RowIndex).証券コード
-            DisplayChar(dispCode)
+            DisplayChart(dispCode)
         End If
     End Sub
+
+
 End Class
