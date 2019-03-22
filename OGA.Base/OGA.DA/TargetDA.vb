@@ -38,4 +38,12 @@ Public Class TargetDA
     End Function
 
 
+    Public Function Insertターゲット(targets As List(Of ターゲット)) As DBResult
+        Return Me.DBExecute("INSERT INTO ターゲット (証券コード) VALUES (:証券コード) ", targets)
+    End Function
+
+    Public Function Deleteターゲット(targets As List(Of ターゲット)) As DBResult
+        Return Me.DBExecute("DELETE FROM ターゲット WHERE 証券コード = :証券コード ", targets)
+    End Function
+
 End Class

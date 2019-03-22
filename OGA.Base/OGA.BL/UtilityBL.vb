@@ -48,4 +48,37 @@ Public Class UtilityBL
         Return True
     End Function
 
+
+    Public Sub Update企業情報(証券コード As Decimal)
+        Dim ut As New Utility.FinanceUtil
+        Dim list As New List(Of 企業情報)
+        Dim listAdd As New List(Of 企業情報)
+        list = ut.Get企業情報(証券コード)
+        If list.Count > 0 Then
+            listAdd.Add(list(0))
+        End If
+        Using scope As TransactionScope =
+                    New TransactionScope(scopeOption:=TransactionScopeOption.Required, scopeTimeout:=New TimeSpan(0, 30, 0))
+            Using da As New UtilityDA
+                Dim dbresult = da.Update企業情報(listAdd)
+                If dbresult.ReturnCd = DBResult.ReturnCds._NORMAL Then
+                    scope.Complete()
+                End If
+            End Using
+        End Using
+    End Sub
+
+    Public Sub Delete情報(証券コード As Decimal)
+        Dim ut As New Utility.FinanceUtil
+        Using scope As TransactionScope =
+                    New TransactionScope(scopeOption:=TransactionScopeOption.Required, scopeTimeout:=New TimeSpan(0, 30, 0))
+            Using da As New UtilityDA
+                Dim dbresult = da.Delete情報(証券コード)
+                If dbresult.ReturnCd = DBResult.ReturnCds._NORMAL Then
+                    scope.Complete()
+                End If
+            End Using
+        End Using
+    End Sub
+
 End Class

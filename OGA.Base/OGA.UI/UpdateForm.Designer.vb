@@ -25,6 +25,10 @@ Partial Class UpdateForm
         Me.btn企業情報更新 = New System.Windows.Forms.Button()
         Me.txt更新時間 = New System.Windows.Forms.RichTextBox()
         Me.btn株価更新 = New System.Windows.Forms.Button()
+        Me.btn個別更新 = New System.Windows.Forms.Button()
+        Me.txt証券コード = New System.Windows.Forms.TextBox()
+        Me.btn個別削除 = New System.Windows.Forms.Button()
+        Me.txt削除証券コード = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'btn企業情報更新
@@ -45,7 +49,7 @@ Partial Class UpdateForm
         Me.txt更新時間.Font = New System.Drawing.Font("ＭＳ ゴシック", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.txt更新時間.Location = New System.Drawing.Point(246, 13)
         Me.txt更新時間.Name = "txt更新時間"
-        Me.txt更新時間.Size = New System.Drawing.Size(478, 102)
+        Me.txt更新時間.Size = New System.Drawing.Size(610, 216)
         Me.txt更新時間.TabIndex = 1
         Me.txt更新時間.Text = ""
         '
@@ -59,21 +63,68 @@ Partial Class UpdateForm
         Me.btn株価更新.Text = "株価更新"
         Me.btn株価更新.UseVisualStyleBackColor = True
         '
+        'btn個別更新
+        '
+        Me.btn個別更新.Font = New System.Drawing.Font("ＭＳ ゴシック", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btn個別更新.Location = New System.Drawing.Point(12, 119)
+        Me.btn個別更新.Name = "btn個別更新"
+        Me.btn個別更新.Size = New System.Drawing.Size(141, 47)
+        Me.btn個別更新.TabIndex = 3
+        Me.btn個別更新.Text = "個別更新"
+        Me.btn個別更新.UseVisualStyleBackColor = True
+        '
+        'txt証券コード
+        '
+        Me.txt証券コード.Font = New System.Drawing.Font("ＭＳ ゴシック", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.txt証券コード.Location = New System.Drawing.Point(159, 124)
+        Me.txt証券コード.MaxLength = 4
+        Me.txt証券コード.Name = "txt証券コード"
+        Me.txt証券コード.Size = New System.Drawing.Size(81, 37)
+        Me.txt証券コード.TabIndex = 4
+        '
+        'btn個別削除
+        '
+        Me.btn個別削除.Font = New System.Drawing.Font("ＭＳ ゴシック", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btn個別削除.Location = New System.Drawing.Point(13, 172)
+        Me.btn個別削除.Name = "btn個別削除"
+        Me.btn個別削除.Size = New System.Drawing.Size(141, 47)
+        Me.btn個別削除.TabIndex = 3
+        Me.btn個別削除.Text = "個別削除"
+        Me.btn個別削除.UseVisualStyleBackColor = True
+        '
+        'txt削除証券コード
+        '
+        Me.txt削除証券コード.Font = New System.Drawing.Font("ＭＳ ゴシック", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.txt削除証券コード.Location = New System.Drawing.Point(160, 177)
+        Me.txt削除証券コード.MaxLength = 4
+        Me.txt削除証券コード.Name = "txt削除証券コード"
+        Me.txt削除証券コード.Size = New System.Drawing.Size(81, 37)
+        Me.txt削除証券コード.TabIndex = 4
+        '
         'UpdateForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(736, 127)
+        Me.ClientSize = New System.Drawing.Size(868, 241)
+        Me.Controls.Add(Me.txt削除証券コード)
+        Me.Controls.Add(Me.txt証券コード)
+        Me.Controls.Add(Me.btn個別削除)
+        Me.Controls.Add(Me.btn個別更新)
         Me.Controls.Add(Me.btn株価更新)
         Me.Controls.Add(Me.txt更新時間)
         Me.Controls.Add(Me.btn企業情報更新)
         Me.Name = "UpdateForm"
         Me.Text = "更新"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents btn企業情報更新 As Button
     Friend WithEvents txt更新時間 As RichTextBox
     Friend WithEvents btn株価更新 As Button
+    Friend WithEvents btn個別更新 As Button
+    Friend WithEvents txt証券コード As TextBox
+    Friend WithEvents btn個別削除 As Button
+    Friend WithEvents txt削除証券コード As TextBox
 End Class

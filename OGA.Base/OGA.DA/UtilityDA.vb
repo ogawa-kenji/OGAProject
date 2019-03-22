@@ -56,4 +56,22 @@ Public Class UtilityDA
 
         Return Me.DBExecute(stb.ToString(), prices)
     End Function
+
+
+    Public Function Delete情報(証券コード As Decimal) As DBResult
+        Dim result = Me.DBExecute("DELETE FROM ターゲット WHERE 証券コード = :証券コード", New With {.証券コード = 証券コード})
+        If result.ReturnCd <> DBResult.ReturnCds._NORMAL Then
+            Return result
+        End If
+        result = Me.DBExecute("DELETE FROM 企業情報 WHERE 証券コード = :証券コード", New With {.証券コード = 証券コード})
+        If result.ReturnCd <> DBResult.ReturnCds._NORMAL Then
+            Return result
+        End If
+        result = Me.DBExecute("DELETE FROM 株価 WHERE 証券コード = :証券コード", New With {.証券コード = 証券コード})
+        If result.ReturnCd <> DBResult.ReturnCds._NORMAL Then
+            Return result
+        End If
+        Return result
+    End Function
+
 End Class

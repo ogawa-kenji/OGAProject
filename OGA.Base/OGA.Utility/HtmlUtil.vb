@@ -171,8 +171,8 @@ Public Class HtmlUtil
         'M. Takahashi's suggestion
         'utf8 += utf8 / 2;
 
-        System.Diagnostics.Debug.WriteLine(
-        String.Format("sjis = {0}, euc = {1}, utf8 = {2}", sjis, euc, utf8))
+        'System.Diagnostics.Debug.WriteLine(
+        'String.Format("sjis = {0}, euc = {1}, utf8 = {2}", sjis, euc, utf8))
         If euc > sjis AndAlso euc > utf8 Then
             'EUC
             Return System.Text.Encoding.GetEncoding(51932)

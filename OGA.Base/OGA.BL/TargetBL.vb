@@ -23,4 +23,19 @@ Public Class TargetBL
         End Using
     End Function
 
+    Public Function Insertターゲット(targets As List(Of ターゲット)) As Boolean
+        Using scope As TransactionScope =
+                    New TransactionScope(scopeOption:=TransactionScopeOption.Required, scopeTimeout:=New TimeSpan(0, 30, 0))
+            Dim da As New TargetDA
+            If da.Deleteターゲット(targets).ReturnCd <> OGA.DA.Base.DBResult.ReturnCds._NORMAL Then
+                Return False
+            End If
+            If da.Insertターゲット(targets).ReturnCd <> OGA.DA.Base.DBResult.ReturnCds._NORMAL Then
+                Return False
+            End If
+            scope.Complete()
+        End Using
+        Return True
+    End Function
+
 End Class
