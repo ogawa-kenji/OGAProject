@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="アラート.vb" />
+    <Compile Include="ゴールデンクロス.vb" />
     <Compile Include="ターゲット.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

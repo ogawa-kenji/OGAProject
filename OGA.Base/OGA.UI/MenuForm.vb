@@ -23,4 +23,9 @@
         Dim frm As New AlertForm
         frm.Show()
     End Sub
+
+    Private Sub lblGoldenCross_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblGoldenCross.LinkClicked
+        Dim frm As New GCForm
+        frm.Show()
+    End Sub
 End Class

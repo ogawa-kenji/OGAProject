@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="CompanyDA.vb" />
     <Compile Include="AleartDA.vb" />
+    <Compile Include="GoldenCrossDA.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

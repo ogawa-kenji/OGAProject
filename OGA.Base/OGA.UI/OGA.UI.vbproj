@@ -102,6 +102,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GCForm.Designer.vb">
+      <DependentUpon>GCForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GCForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MenuForm.Designer.vb">
       <DependentUpon>MenuForm.vb</DependentUpon>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GCForm.resx">
+      <DependentUpon>GCForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.vb</DependentUpon>
