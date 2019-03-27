@@ -100,17 +100,42 @@ Public Class BackTestForm
         Dim rule As New Rule1(prices, condition.移動平均5増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
         rule.Calc()
 
-        'While beginDate <= endDate
-        '    If rule.CheckBuyRule(beginDate) Then
-        '        rule.Buy(beginDate)
-        '    End If
-        '    If rule.CheckSellRule(beginDate) Then
-        '        rule.Sell(beginDate)
-        '    End If
-        '    rule.経過日数 += 1
-        '    rule.TestAdd(beginDate)
-        '    beginDate = beginDate.AddDays(1)
-        'End While
+        Debug.WriteLine(String.Format("{0} 評価:{1} 現金:{2} 株数:{3} 回数:{4}",
+                                          beginDate.ToString("yyyy/MM/dd"),
+                                          rule.評価額,
+                                          rule.現金,
+                                          rule.株数,
+                                          rule.売買回数))
+
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.DataSource = rule.テスト結果
+
+        Me.DataGridView2.DataSource = rule.テスト結果
+
+        DisplayChart(rule.テスト結果)
+
+    End Sub
+
+    Private Sub Rule2(証券コード As Decimal, rowIdx As Integer)
+        Dim pricebl As New PriceBL
+        Dim prices As List(Of 移動平均)
+        prices = pricebl.Select移動平均(証券コード)
+        Dim beginDate As DateTime = Now.AddYears(-3).Date
+        Dim endDate As DateTime = prices(prices.Count - 1).日付
+
+        Dim condition As New ルール.ルール1
+        Try
+            condition.移動平均5増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(2).Value)
+            condition.売経過日数 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(3).Value)
+            condition.期間開始 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(4).Value)
+            condition.期間終了 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(5).Value)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            Return
+        End Try
+
+        Dim rule As New Rule2(prices, condition.移動平均5増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
+        rule.Calc()
 
         Debug.WriteLine(String.Format("{0} 評価:{1} 現金:{2} 株数:{3} 回数:{4}",
                                           beginDate.ToString("yyyy/MM/dd"),
@@ -131,7 +156,12 @@ Public Class BackTestForm
     Private Sub dgv企業情報_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv企業情報.CellContentDoubleClick
         If e.RowIndex <> -1 Then
             Dim companies As List(Of 企業情報) = CType(Me.dgv企業情報.DataSource, List(Of 企業情報))
-            Rule1(companies(e.RowIndex).証券コード, e.RowIndex)
+            If Me.rdo5.Checked Then
+                Rule1(companies(e.RowIndex).証券コード, e.RowIndex)
+            End If
+            If Me.rdo75.Checked Then
+                Rule2(companies(e.RowIndex).証券コード, e.RowIndex)
+            End If
         End If
     End Sub
 
@@ -285,12 +315,24 @@ Public Class BackTestForm
             Await Task.Run(Sub()
 
                                For Each condition In conditions
-                                   Dim rule As New Rule1(prices, condition.移動平均5増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
-                                   rule.Calc()
-                                   If maxKing < rule.評価額 Then
-                                       maxKing = rule.評価額
-                                       maxRule = condition
+                                   If Me.rdo5.Checked Then
+                                       Dim rule As New Rule1(prices, condition.移動平均5増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
+                                       rule.Calc()
+                                       If maxKing < rule.評価額 Then
+                                           maxKing = rule.評価額
+                                           maxRule = condition
+                                       End If
                                    End If
+
+                                   If Me.rdo75.Checked Then
+                                       Dim rule As New Rule2(prices, condition.移動平均5増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
+                                       rule.Calc()
+                                       If maxKing < rule.評価額 Then
+                                           maxKing = rule.評価額
+                                           maxRule = condition
+                                       End If
+                                   End If
+
                                Next
 
                            End Sub)

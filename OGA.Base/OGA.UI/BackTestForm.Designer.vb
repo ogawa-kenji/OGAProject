@@ -22,14 +22,21 @@ Partial Class BackTestForm
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.dgv企業情報 = New System.Windows.Forms.DataGridView()
+        Me.証券コード = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.企業名 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.移動平均5増減率 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.売経過日数 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.期間開始 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.期間終了 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.評価額 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -47,13 +54,8 @@ Partial Class BackTestForm
         Me.chartPrice = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.txtCondition = New System.Windows.Forms.TextBox()
         Me.btnCondition = New System.Windows.Forms.Button()
-        Me.証券コード = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.企業名 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.移動平均5増減率 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.売経過日数 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.期間開始 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.期間終了 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.評価額 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.rdo5 = New System.Windows.Forms.RadioButton()
+        Me.rdo75 = New System.Windows.Forms.RadioButton()
         CType(Me.dgv企業情報, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,6 +76,62 @@ Partial Class BackTestForm
         Me.dgv企業情報.RowTemplate.Height = 24
         Me.dgv企業情報.Size = New System.Drawing.Size(485, 527)
         Me.dgv企業情報.TabIndex = 5
+        '
+        '証券コード
+        '
+        Me.証券コード.DataPropertyName = "証券コード"
+        Me.証券コード.HeaderText = "証券コード"
+        Me.証券コード.Name = "証券コード"
+        Me.証券コード.ReadOnly = True
+        Me.証券コード.Width = 50
+        '
+        '企業名
+        '
+        Me.企業名.DataPropertyName = "企業名"
+        Me.企業名.HeaderText = "企業名"
+        Me.企業名.Name = "企業名"
+        Me.企業名.ReadOnly = True
+        '
+        '移動平均5増減率
+        '
+        Me.移動平均5増減率.HeaderText = "移動平均5増減率"
+        Me.移動平均5増減率.Name = "移動平均5増減率"
+        Me.移動平均5増減率.Width = 50
+        '
+        '売経過日数
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.売経過日数.DefaultCellStyle = DataGridViewCellStyle1
+        Me.売経過日数.HeaderText = "売経過日数"
+        Me.売経過日数.Name = "売経過日数"
+        Me.売経過日数.Width = 50
+        '
+        '期間開始
+        '
+        DataGridViewCellStyle2.Format = "d"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.期間開始.DefaultCellStyle = DataGridViewCellStyle2
+        Me.期間開始.HeaderText = "期間開始"
+        Me.期間開始.Name = "期間開始"
+        Me.期間開始.Width = 70
+        '
+        '期間終了
+        '
+        DataGridViewCellStyle3.Format = "d"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.期間終了.DefaultCellStyle = DataGridViewCellStyle3
+        Me.期間終了.HeaderText = "期間終了"
+        Me.期間終了.Name = "期間終了"
+        Me.期間終了.Width = 70
+        '
+        '評価額
+        '
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "N0"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.評価額.DefaultCellStyle = DataGridViewCellStyle4
+        Me.評価額.HeaderText = "評価額"
+        Me.評価額.Name = "評価額"
         '
         'DataGridView1
         '
@@ -217,67 +275,35 @@ Partial Class BackTestForm
         Me.btnCondition.Text = "条件読込"
         Me.btnCondition.UseVisualStyleBackColor = True
         '
-        '証券コード
+        'rdo5
         '
-        Me.証券コード.DataPropertyName = "証券コード"
-        Me.証券コード.HeaderText = "証券コード"
-        Me.証券コード.Name = "証券コード"
-        Me.証券コード.ReadOnly = True
-        Me.証券コード.Width = 50
+        Me.rdo5.AutoSize = True
+        Me.rdo5.Checked = True
+        Me.rdo5.Location = New System.Drawing.Point(950, 15)
+        Me.rdo5.Name = "rdo5"
+        Me.rdo5.Size = New System.Drawing.Size(36, 19)
+        Me.rdo5.TabIndex = 11
+        Me.rdo5.TabStop = True
+        Me.rdo5.Text = "5"
+        Me.rdo5.UseVisualStyleBackColor = True
         '
-        '企業名
+        'rdo75
         '
-        Me.企業名.DataPropertyName = "企業名"
-        Me.企業名.HeaderText = "企業名"
-        Me.企業名.Name = "企業名"
-        Me.企業名.ReadOnly = True
-        '
-        '移動平均5増減率
-        '
-        Me.移動平均5増減率.HeaderText = "移動平均5増減率"
-        Me.移動平均5増減率.Name = "移動平均5増減率"
-        Me.移動平均5増減率.Width = 50
-        '
-        '売経過日数
-        '
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.売経過日数.DefaultCellStyle = DataGridViewCellStyle1
-        Me.売経過日数.HeaderText = "売経過日数"
-        Me.売経過日数.Name = "売経過日数"
-        Me.売経過日数.Width = 50
-        '
-        '期間開始
-        '
-        DataGridViewCellStyle2.Format = "d"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.期間開始.DefaultCellStyle = DataGridViewCellStyle2
-        Me.期間開始.HeaderText = "期間開始"
-        Me.期間開始.Name = "期間開始"
-        Me.期間開始.Width = 70
-        '
-        '期間終了
-        '
-        DataGridViewCellStyle3.Format = "d"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.期間終了.DefaultCellStyle = DataGridViewCellStyle3
-        Me.期間終了.HeaderText = "期間終了"
-        Me.期間終了.Name = "期間終了"
-        Me.期間終了.Width = 70
-        '
-        '評価額
-        '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Format = "N0"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.評価額.DefaultCellStyle = DataGridViewCellStyle4
-        Me.評価額.HeaderText = "評価額"
-        Me.評価額.Name = "評価額"
+        Me.rdo75.AutoSize = True
+        Me.rdo75.Location = New System.Drawing.Point(1041, 13)
+        Me.rdo75.Name = "rdo75"
+        Me.rdo75.Size = New System.Drawing.Size(44, 19)
+        Me.rdo75.TabIndex = 12
+        Me.rdo75.Text = "75"
+        Me.rdo75.UseVisualStyleBackColor = True
         '
         'BackTestForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1099, 551)
+        Me.Controls.Add(Me.rdo75)
+        Me.Controls.Add(Me.rdo5)
         Me.Controls.Add(Me.btnCondition)
         Me.Controls.Add(Me.txtCondition)
         Me.Controls.Add(Me.chartPrice)
@@ -320,4 +346,6 @@ Partial Class BackTestForm
     Friend WithEvents 期間開始 As DataGridViewTextBoxColumn
     Friend WithEvents 期間終了 As DataGridViewTextBoxColumn
     Friend WithEvents 評価額 As DataGridViewTextBoxColumn
+    Friend WithEvents rdo5 As RadioButton
+    Friend WithEvents rdo75 As RadioButton
 End Class

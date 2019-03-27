@@ -92,6 +92,15 @@ Public Class ChartForm
         '' Y軸を合わせる処置
         areaColumn.AlignWithChartArea = "株価"
         areaColumn.AxisX.IsMarginVisible = False
+        areaColumn.AxisY.IsMarginVisible = False
+        areaColumn.AxisY.MajorGrid.Enabled = True
+        areaColumn.Axes(0).IsLabelAutoFit = False
+        areaColumn.Axes(0).Enabled = AxisEnabled.False
+        areaColumn.IsSameFontSizeForAllAxes = False
+
+
+
+        'areaColumn.AxisY.ValueToPosition(10)
         'areaColumn.AxisX.IsLabelAutoFit = False
         'areaColumn.AxisX.MaximumAutoSize = 20
         chartPrice.ChartAreas.Add(areaColumn)
