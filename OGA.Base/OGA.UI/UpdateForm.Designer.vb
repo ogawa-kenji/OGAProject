@@ -114,6 +114,7 @@ Partial Class UpdateForm
         Me.Controls.Add(Me.txt更新時間)
         Me.Controls.Add(Me.btn企業情報更新)
         Me.Name = "UpdateForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "更新"
         Me.ResumeLayout(False)
         Me.PerformLayout()

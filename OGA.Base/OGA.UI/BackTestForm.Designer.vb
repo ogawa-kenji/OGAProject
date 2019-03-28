@@ -311,6 +311,7 @@ Partial Class BackTestForm
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.dgv企業情報)
         Me.Name = "BackTestForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "BackTestForm"
         CType(Me.dgv企業情報, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

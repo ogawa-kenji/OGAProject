@@ -22,10 +22,10 @@ Partial Class GCForm
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgv企業情報 = New System.Windows.Forms.DataGridView()
         Me.証券コード = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.企業名 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -77,16 +77,16 @@ Partial Class GCForm
         Me.chartPrice.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea2.Name = "ChartArea1"
-        Me.chartPrice.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.chartPrice.Legends.Add(Legend2)
+        ChartArea1.Name = "ChartArea1"
+        Me.chartPrice.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.chartPrice.Legends.Add(Legend1)
         Me.chartPrice.Location = New System.Drawing.Point(189, 195)
         Me.chartPrice.Name = "chartPrice"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.chartPrice.Series.Add(Series2)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.chartPrice.Series.Add(Series1)
         Me.chartPrice.Size = New System.Drawing.Size(832, 341)
         Me.chartPrice.TabIndex = 6
         Me.chartPrice.Text = "Chart1"
@@ -125,10 +125,10 @@ Partial Class GCForm
         '日付
         '
         Me.日付.DataPropertyName = "日付"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.Format = "d"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.日付.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.Format = "d"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.日付.DefaultCellStyle = DataGridViewCellStyle1
         Me.日付.HeaderText = "日付"
         Me.日付.Name = "日付"
         '
@@ -169,6 +169,7 @@ Partial Class GCForm
         Me.Controls.Add(Me.chartPrice)
         Me.Controls.Add(Me.dgv企業情報)
         Me.Name = "GCForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ゴールデンクロス"
         CType(Me.dgv企業情報, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.chartPrice, System.ComponentModel.ISupportInitialize).EndInit()

@@ -22,66 +22,66 @@ Partial Class AlertForm
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgv株価増減マイナス = New System.Windows.Forms.DataGridView()
-        Me.lblMinus = New System.Windows.Forms.Label()
-        Me.dgv株価増減プラス = New System.Windows.Forms.DataGridView()
-        Me.lblPlus = New System.Windows.Forms.Label()
         Me.証券コード = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.企業名 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.株価増減率 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lblMinus = New System.Windows.Forms.Label()
+        Me.dgv株価増減プラス = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.lblPlus = New System.Windows.Forms.Label()
         Me.dgv出来高増減マイナス = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.dgv出来高増減プラス = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dgv移動平均5乖離率マイナス = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.dgv移動平均5乖離率プラス = New System.Windows.Forms.DataGridView()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.dgv移動平均5乖離率プラス = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.dgv移動平均25乖離率プラス = New System.Windows.Forms.DataGridView()
-        Me.dgv移動平均25乖離率マイナス = New System.Windows.Forms.DataGridView()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.dgv移動平均75乖離率プラス = New System.Windows.Forms.DataGridView()
-        Me.dgv移動平均75乖離率マイナス = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgv移動平均25乖離率マイナス = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.dgv移動平均75乖離率プラス = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dgv移動平均75乖離率マイナス = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgv株価増減マイナス, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv株価増減プラス, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv出来高増減マイナス, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,6 +110,32 @@ Partial Class AlertForm
         Me.dgv株価増減マイナス.Size = New System.Drawing.Size(224, 282)
         Me.dgv株価増減マイナス.TabIndex = 6
         '
+        '証券コード
+        '
+        Me.証券コード.DataPropertyName = "証券コード"
+        Me.証券コード.HeaderText = "証券コード"
+        Me.証券コード.Name = "証券コード"
+        Me.証券コード.ReadOnly = True
+        Me.証券コード.Width = 50
+        '
+        '企業名
+        '
+        Me.企業名.DataPropertyName = "企業名"
+        Me.企業名.HeaderText = "企業名"
+        Me.企業名.Name = "企業名"
+        Me.企業名.ReadOnly = True
+        '
+        '株価増減率
+        '
+        Me.株価増減率.DataPropertyName = "株価増減率"
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle1.Format = "0.00%"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.株価増減率.DefaultCellStyle = DataGridViewCellStyle1
+        Me.株価増減率.HeaderText = "株価増減率"
+        Me.株価増減率.Name = "株価増減率"
+        Me.株価増減率.Width = 70
+        '
         'lblMinus
         '
         Me.lblMinus.AutoSize = True
@@ -135,41 +161,6 @@ Partial Class AlertForm
         Me.dgv株価増減プラス.Size = New System.Drawing.Size(224, 282)
         Me.dgv株価増減プラス.TabIndex = 6
         '
-        'lblPlus
-        '
-        Me.lblPlus.AutoSize = True
-        Me.lblPlus.Location = New System.Drawing.Point(12, 312)
-        Me.lblPlus.Name = "lblPlus"
-        Me.lblPlus.Size = New System.Drawing.Size(99, 15)
-        Me.lblPlus.TabIndex = 7
-        Me.lblPlus.Text = "株価増減プラス"
-        '
-        '証券コード
-        '
-        Me.証券コード.DataPropertyName = "証券コード"
-        Me.証券コード.HeaderText = "証券コード"
-        Me.証券コード.Name = "証券コード"
-        Me.証券コード.ReadOnly = True
-        Me.証券コード.Width = 50
-        '
-        '企業名
-        '
-        Me.企業名.DataPropertyName = "企業名"
-        Me.企業名.HeaderText = "企業名"
-        Me.企業名.Name = "企業名"
-        Me.企業名.ReadOnly = True
-        '
-        '株価増減率
-        '
-        Me.株価増減率.DataPropertyName = "株価増減率"
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle11.Format = "0.00%"
-        DataGridViewCellStyle11.NullValue = Nothing
-        Me.株価増減率.DefaultCellStyle = DataGridViewCellStyle11
-        Me.株価増減率.HeaderText = "株価増減率"
-        Me.株価増減率.Name = "株価増減率"
-        Me.株価増減率.Width = 70
-        '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "証券コード"
@@ -188,13 +179,22 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "株価増減率"
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle12.Format = "0.00%"
-        DataGridViewCellStyle12.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "0.00%"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewTextBoxColumn3.HeaderText = "株価増減率"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.Width = 70
+        '
+        'lblPlus
+        '
+        Me.lblPlus.AutoSize = True
+        Me.lblPlus.Location = New System.Drawing.Point(12, 312)
+        Me.lblPlus.Name = "lblPlus"
+        Me.lblPlus.Size = New System.Drawing.Size(99, 15)
+        Me.lblPlus.TabIndex = 7
+        Me.lblPlus.Text = "株価増減プラス"
         '
         'dgv出来高増減マイナス
         '
@@ -211,15 +211,6 @@ Partial Class AlertForm
         Me.dgv出来高増減マイナス.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgv出来高増減マイナス.Size = New System.Drawing.Size(224, 282)
         Me.dgv出来高増減マイナス.TabIndex = 6
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(242, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(127, 15)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Text = "出来高増減マイナス"
         '
         'DataGridViewTextBoxColumn4
         '
@@ -239,13 +230,22 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "出来高増減率"
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle13.Format = "0.00%"
-        DataGridViewCellStyle13.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "0.00%"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewTextBoxColumn6.HeaderText = "出来高増減率"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.Width = 70
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(242, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(127, 15)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "出来高増減マイナス"
         '
         'dgv出来高増減プラス
         '
@@ -281,10 +281,10 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn9
         '
         Me.DataGridViewTextBoxColumn9.DataPropertyName = "出来高増減率"
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle14.Format = "0.00%"
-        DataGridViewCellStyle14.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.Format = "0.00%"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewTextBoxColumn9.HeaderText = "出来高増減率"
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
         Me.DataGridViewTextBoxColumn9.Width = 70
@@ -314,6 +314,32 @@ Partial Class AlertForm
         Me.dgv移動平均5乖離率マイナス.Size = New System.Drawing.Size(224, 282)
         Me.dgv移動平均5乖離率マイナス.TabIndex = 6
         '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "証券コード"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "証券コード"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Width = 50
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "企業名"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "企業名"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "移動平均5乖離率"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle5.Format = "0.00%"
+        DataGridViewCellStyle5.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle5
+        Me.DataGridViewTextBoxColumn12.HeaderText = "移動平均5乖離率"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.Width = 70
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -339,41 +365,6 @@ Partial Class AlertForm
         Me.dgv移動平均5乖離率プラス.Size = New System.Drawing.Size(224, 282)
         Me.dgv移動平均5乖離率プラス.TabIndex = 6
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(475, 312)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(152, 15)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "移動平均5乖離率プラス"
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "証券コード"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "証券コード"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        Me.DataGridViewTextBoxColumn10.Width = 50
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "企業名"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "企業名"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "移動平均5乖離率"
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle15.Format = "0.00%"
-        DataGridViewCellStyle15.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle15
-        Me.DataGridViewTextBoxColumn12.HeaderText = "移動平均5乖離率"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.Width = 70
-        '
         'DataGridViewTextBoxColumn13
         '
         Me.DataGridViewTextBoxColumn13.DataPropertyName = "証券コード"
@@ -392,13 +383,22 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn15
         '
         Me.DataGridViewTextBoxColumn15.DataPropertyName = "移動平均5乖離率"
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle16.Format = "0.00%"
-        DataGridViewCellStyle16.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Format = "0.00%"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewTextBoxColumn15.HeaderText = "移動平均5乖離率"
         Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
         Me.DataGridViewTextBoxColumn15.Width = 70
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(475, 312)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(152, 15)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "移動平均5乖離率プラス"
         '
         'Label5
         '
@@ -434,6 +434,32 @@ Partial Class AlertForm
         Me.dgv移動平均25乖離率プラス.Size = New System.Drawing.Size(224, 282)
         Me.dgv移動平均25乖離率プラス.TabIndex = 8
         '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "証券コード"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "証券コード"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
+        Me.DataGridViewTextBoxColumn16.Width = 50
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "企業名"
+        Me.DataGridViewTextBoxColumn17.HeaderText = "企業名"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.DataPropertyName = "移動平均25乖離率"
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle7.Format = "0.00%"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle7
+        Me.DataGridViewTextBoxColumn18.HeaderText = "移動平均25乖離率"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        Me.DataGridViewTextBoxColumn18.Width = 70
+        '
         'dgv移動平均25乖離率マイナス
         '
         Me.dgv移動平均25乖離率マイナス.AllowUserToAddRows = False
@@ -449,6 +475,32 @@ Partial Class AlertForm
         Me.dgv移動平均25乖離率マイナス.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgv移動平均25乖離率マイナス.Size = New System.Drawing.Size(224, 282)
         Me.dgv移動平均25乖離率マイナス.TabIndex = 9
+        '
+        'DataGridViewTextBoxColumn19
+        '
+        Me.DataGridViewTextBoxColumn19.DataPropertyName = "証券コード"
+        Me.DataGridViewTextBoxColumn19.HeaderText = "証券コード"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        Me.DataGridViewTextBoxColumn19.ReadOnly = True
+        Me.DataGridViewTextBoxColumn19.Width = 50
+        '
+        'DataGridViewTextBoxColumn20
+        '
+        Me.DataGridViewTextBoxColumn20.DataPropertyName = "企業名"
+        Me.DataGridViewTextBoxColumn20.HeaderText = "企業名"
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        Me.DataGridViewTextBoxColumn20.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn21
+        '
+        Me.DataGridViewTextBoxColumn21.DataPropertyName = "移動平均25乖離率"
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle8.Format = "0.00%"
+        DataGridViewCellStyle8.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn21.DefaultCellStyle = DataGridViewCellStyle8
+        Me.DataGridViewTextBoxColumn21.HeaderText = "移動平均25乖離率"
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        Me.DataGridViewTextBoxColumn21.Width = 70
         '
         'Label7
         '
@@ -484,6 +536,32 @@ Partial Class AlertForm
         Me.dgv移動平均75乖離率プラス.Size = New System.Drawing.Size(224, 282)
         Me.dgv移動平均75乖離率プラス.TabIndex = 12
         '
+        'DataGridViewTextBoxColumn22
+        '
+        Me.DataGridViewTextBoxColumn22.DataPropertyName = "証券コード"
+        Me.DataGridViewTextBoxColumn22.HeaderText = "証券コード"
+        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
+        Me.DataGridViewTextBoxColumn22.ReadOnly = True
+        Me.DataGridViewTextBoxColumn22.Width = 50
+        '
+        'DataGridViewTextBoxColumn23
+        '
+        Me.DataGridViewTextBoxColumn23.DataPropertyName = "企業名"
+        Me.DataGridViewTextBoxColumn23.HeaderText = "企業名"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        Me.DataGridViewTextBoxColumn23.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn24
+        '
+        Me.DataGridViewTextBoxColumn24.DataPropertyName = "移動平均75乖離率"
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle9.Format = "0.00%"
+        DataGridViewCellStyle9.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle9
+        Me.DataGridViewTextBoxColumn24.HeaderText = "移動平均75乖離率"
+        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        Me.DataGridViewTextBoxColumn24.Width = 70
+        '
         'dgv移動平均75乖離率マイナス
         '
         Me.dgv移動平均75乖離率マイナス.AllowUserToAddRows = False
@@ -499,58 +577,6 @@ Partial Class AlertForm
         Me.dgv移動平均75乖離率マイナス.ScrollBars = System.Windows.Forms.ScrollBars.None
         Me.dgv移動平均75乖離率マイナス.Size = New System.Drawing.Size(224, 282)
         Me.dgv移動平均75乖離率マイナス.TabIndex = 13
-        '
-        'DataGridViewTextBoxColumn19
-        '
-        Me.DataGridViewTextBoxColumn19.DataPropertyName = "証券コード"
-        Me.DataGridViewTextBoxColumn19.HeaderText = "証券コード"
-        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
-        Me.DataGridViewTextBoxColumn19.ReadOnly = True
-        Me.DataGridViewTextBoxColumn19.Width = 50
-        '
-        'DataGridViewTextBoxColumn20
-        '
-        Me.DataGridViewTextBoxColumn20.DataPropertyName = "企業名"
-        Me.DataGridViewTextBoxColumn20.HeaderText = "企業名"
-        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
-        Me.DataGridViewTextBoxColumn20.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn21
-        '
-        Me.DataGridViewTextBoxColumn21.DataPropertyName = "移動平均25乖離率"
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle18.Format = "0.00%"
-        DataGridViewCellStyle18.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn21.DefaultCellStyle = DataGridViewCellStyle18
-        Me.DataGridViewTextBoxColumn21.HeaderText = "移動平均25乖離率"
-        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-        Me.DataGridViewTextBoxColumn21.Width = 70
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.DataPropertyName = "証券コード"
-        Me.DataGridViewTextBoxColumn16.HeaderText = "証券コード"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        Me.DataGridViewTextBoxColumn16.ReadOnly = True
-        Me.DataGridViewTextBoxColumn16.Width = 50
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.DataPropertyName = "企業名"
-        Me.DataGridViewTextBoxColumn17.HeaderText = "企業名"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        Me.DataGridViewTextBoxColumn17.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn18
-        '
-        Me.DataGridViewTextBoxColumn18.DataPropertyName = "移動平均25乖離率"
-        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle19.Format = "0.00%"
-        DataGridViewCellStyle19.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle19
-        Me.DataGridViewTextBoxColumn18.HeaderText = "移動平均25乖離率"
-        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        Me.DataGridViewTextBoxColumn18.Width = 70
         '
         'DataGridViewTextBoxColumn25
         '
@@ -570,39 +596,13 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn27
         '
         Me.DataGridViewTextBoxColumn27.DataPropertyName = "移動平均75乖離率"
-        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle20.Format = "0.00%"
-        DataGridViewCellStyle20.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn27.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle10.Format = "0.00%"
+        DataGridViewCellStyle10.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn27.DefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridViewTextBoxColumn27.HeaderText = "移動平均75乖離率"
         Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
         Me.DataGridViewTextBoxColumn27.Width = 70
-        '
-        'DataGridViewTextBoxColumn22
-        '
-        Me.DataGridViewTextBoxColumn22.DataPropertyName = "証券コード"
-        Me.DataGridViewTextBoxColumn22.HeaderText = "証券コード"
-        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        Me.DataGridViewTextBoxColumn22.ReadOnly = True
-        Me.DataGridViewTextBoxColumn22.Width = 50
-        '
-        'DataGridViewTextBoxColumn23
-        '
-        Me.DataGridViewTextBoxColumn23.DataPropertyName = "企業名"
-        Me.DataGridViewTextBoxColumn23.HeaderText = "企業名"
-        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
-        Me.DataGridViewTextBoxColumn23.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn24
-        '
-        Me.DataGridViewTextBoxColumn24.DataPropertyName = "移動平均75乖離率"
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle17.Format = "0.00%"
-        DataGridViewCellStyle17.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle17
-        Me.DataGridViewTextBoxColumn24.HeaderText = "移動平均75乖離率"
-        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
-        Me.DataGridViewTextBoxColumn24.Width = 70
         '
         'AlertForm
         '
@@ -630,6 +630,7 @@ Partial Class AlertForm
         Me.Controls.Add(Me.dgv出来高増減マイナス)
         Me.Controls.Add(Me.dgv株価増減マイナス)
         Me.Name = "AlertForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "アラート"
         CType(Me.dgv株価増減マイナス, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv株価増減プラス, System.ComponentModel.ISupportInitialize).EndInit()

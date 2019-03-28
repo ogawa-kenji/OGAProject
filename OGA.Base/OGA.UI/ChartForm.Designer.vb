@@ -152,6 +152,7 @@ Partial Class ChartForm
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "ChartForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "チャートフォーム"
         CType(Me.chartPrice, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgv企業情報, System.ComponentModel.ISupportInitialize).EndInit()
