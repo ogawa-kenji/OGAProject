@@ -69,6 +69,8 @@
     <Compile Include="FinanceUtil.vb" />
     <Compile Include="HtmlUtil.vb" />
     <Compile Include="IBackTest.vb" />
+    <Compile Include="Rule4.vb" />
+    <Compile Include="Rule3.vb" />
     <Compile Include="Rule2.vb" />
     <Compile Include="Rule1.vb" />
     <Compile Include="Utility.vb" />

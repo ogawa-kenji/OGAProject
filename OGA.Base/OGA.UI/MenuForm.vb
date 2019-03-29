@@ -28,4 +28,9 @@
         Dim frm As New GCForm
         frm.Show()
     End Sub
+
+    Private Sub lblBackTest2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblBackTest2.LinkClicked
+        Dim frm As New BackTestForm2
+        frm.Show()
+    End Sub
 End Class

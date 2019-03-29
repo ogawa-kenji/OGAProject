@@ -28,6 +28,7 @@ Partial Class MenuForm
         Me.lblBackTest = New System.Windows.Forms.LinkLabel()
         Me.lblAleart = New System.Windows.Forms.LinkLabel()
         Me.lblGoldenCross = New System.Windows.Forms.LinkLabel()
+        Me.lblBackTest2 = New System.Windows.Forms.LinkLabel()
         Me.SuspendLayout()
         '
         'lblUpdate
@@ -90,11 +91,22 @@ Partial Class MenuForm
         Me.lblGoldenCross.TabStop = True
         Me.lblGoldenCross.Text = "ゴールデンクロスフォーム"
         '
+        'lblBackTest2
+        '
+        Me.lblBackTest2.AutoSize = True
+        Me.lblBackTest2.Location = New System.Drawing.Point(171, 123)
+        Me.lblBackTest2.Name = "lblBackTest2"
+        Me.lblBackTest2.Size = New System.Drawing.Size(124, 15)
+        Me.lblBackTest2.TabIndex = 5
+        Me.lblBackTest2.TabStop = True
+        Me.lblBackTest2.Text = "バックテスト2フォーム"
+        '
         'MenuForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblBackTest2)
         Me.Controls.Add(Me.lblGoldenCross)
         Me.Controls.Add(Me.lblAleart)
         Me.Controls.Add(Me.lblBackTest)
@@ -115,4 +127,5 @@ Partial Class MenuForm
     Friend WithEvents lblBackTest As LinkLabel
     Friend WithEvents lblAleart As LinkLabel
     Friend WithEvents lblGoldenCross As LinkLabel
+    Friend WithEvents lblBackTest2 As LinkLabel
 End Class

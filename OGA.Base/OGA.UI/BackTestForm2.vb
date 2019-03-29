@@ -5,7 +5,7 @@ Imports OGA.BI
 Imports OGA.BL
 Imports OGA.Utility
 
-Public Class BackTestForm
+Public Class BackTestForm2
     Private Sub BackTestForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim companybl As New BL.CompanyBL
         Dim companies = companybl.Select企業情報()
@@ -79,25 +79,35 @@ Public Class BackTestForm
 
     End Sub
 
-    Private Sub Rule1(証券コード As Decimal, rowIdx As Integer)
+    Private Sub Rule4(証券コード As Decimal, rowIdx As Integer)
+
+        If Me.dgv企業情報.Rows(rowIdx).Cells(2).Value Is Nothing Then
+            Return
+        End If
+
         Dim pricebl As New PriceBL
         Dim prices As List(Of 移動平均)
         prices = pricebl.Select移動平均(証券コード)
         Dim beginDate As DateTime = Now.AddYears(-3).Date
         Dim endDate As DateTime = prices(prices.Count - 1).日付
 
-        Dim condition As New ルール.ルール1
+        Dim condition As New ルール.ルール4
         Try
-            condition.移動平均5増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(2).Value)
-            condition.売経過日数 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(3).Value)
-            condition.期間開始 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(4).Value)
-            condition.期間終了 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(5).Value)
+            condition.移動平均5開始増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(2).Value)
+            condition.移動平均5終了増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(3).Value)
+            condition.移動平均25開始増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(4).Value)
+            condition.移動平均25終了増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(5).Value)
+            condition.移動平均75開始増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(6).Value)
+            condition.移動平均75終了増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(7).Value)
+            condition.売経過日数 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(8).Value)
+            condition.期間開始 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(9).Value)
+            condition.期間終了 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(10).Value)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             Return
         End Try
 
-        Dim rule As New Rule1(prices, condition.移動平均5増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
+        Dim rule As New Rule4(prices, condition)
         rule.Calc()
 
         Debug.WriteLine(String.Format("{0} 評価:{1} 現金:{2} 株数:{3} 回数:{4}",
@@ -107,8 +117,6 @@ Public Class BackTestForm
                                           rule.株数,
                                           rule.売買回数))
 
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.DataSource = rule.テスト結果
 
         Me.DataGridView2.DataSource = rule.テスト結果
 
@@ -116,93 +124,12 @@ Public Class BackTestForm
 
     End Sub
 
-    Private Sub Rule2(証券コード As Decimal, rowIdx As Integer)
-        Dim pricebl As New PriceBL
-        Dim prices As List(Of 移動平均)
-        prices = pricebl.Select移動平均(証券コード)
-        Dim beginDate As DateTime = Now.AddYears(-3).Date
-        Dim endDate As DateTime = prices(prices.Count - 1).日付
 
-        Dim condition As New ルール.ルール1
-        Try
-            condition.移動平均5増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(2).Value)
-            condition.売経過日数 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(3).Value)
-            condition.期間開始 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(4).Value)
-            condition.期間終了 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(5).Value)
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            Return
-        End Try
-
-        Dim rule As New Rule2(prices, condition.移動平均5増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
-        rule.Calc()
-
-        Debug.WriteLine(String.Format("{0} 評価:{1} 現金:{2} 株数:{3} 回数:{4}",
-                                          beginDate.ToString("yyyy/MM/dd"),
-                                          rule.評価額,
-                                          rule.現金,
-                                          rule.株数,
-                                          rule.売買回数))
-
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.DataSource = rule.テスト結果
-
-        Me.DataGridView2.DataSource = rule.テスト結果
-
-        DisplayChart(rule.テスト結果)
-
-    End Sub
-
-    Private Sub Rule3(証券コード As Decimal, rowIdx As Integer)
-        Dim pricebl As New PriceBL
-        Dim prices As List(Of 移動平均)
-        prices = pricebl.Select移動平均(証券コード)
-        Dim beginDate As DateTime = Now.AddYears(-3).Date
-        Dim endDate As DateTime = prices(prices.Count - 1).日付
-
-        Dim condition As New ルール.ルール1
-        Try
-            condition.移動平均5増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(2).Value)
-            condition.移動平均75増減率 = -0.2D
-            condition.売経過日数 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(3).Value)
-            condition.期間開始 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(4).Value)
-            condition.期間終了 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(5).Value)
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-            Return
-        End Try
-
-        Dim rule As New Rule3(prices, condition.移動平均5増減率, condition.移動平均75増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
-        rule.Calc()
-
-        Debug.WriteLine(String.Format("{0} 評価:{1} 現金:{2} 株数:{3} 回数:{4}",
-                                          beginDate.ToString("yyyy/MM/dd"),
-                                          rule.評価額,
-                                          rule.現金,
-                                          rule.株数,
-                                          rule.売買回数))
-
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.DataSource = rule.テスト結果
-
-        Me.DataGridView2.DataSource = rule.テスト結果
-
-        DisplayChart(rule.テスト結果)
-
-    End Sub
 
     Private Sub dgv企業情報_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv企業情報.CellContentDoubleClick
         If e.RowIndex <> -1 Then
             Dim companies As List(Of 企業情報) = CType(Me.dgv企業情報.DataSource, List(Of 企業情報))
-            If Me.rdo5.Checked Then
-                Rule1(companies(e.RowIndex).証券コード, e.RowIndex)
-            End If
-            If Me.rdo75.Checked Then
-                Rule2(companies(e.RowIndex).証券コード, e.RowIndex)
-            End If
-            If Me.rdoRule3.Checked Then
-                Rule3(companies(e.RowIndex).証券コード, e.RowIndex)
-            End If
+            Rule4(companies(e.RowIndex).証券コード, e.RowIndex)
         End If
     End Sub
 
@@ -214,7 +141,6 @@ Public Class BackTestForm
         Next
 
         Dim dp As DataPoint
-        Dim dpCol As DataPoint
         Dim dpAvg5 As DataPoint
         Dim dpAvg25 As DataPoint
         Dim dpAvg75 As DataPoint
@@ -315,8 +241,8 @@ Public Class BackTestForm
 
     Private Async Sub btnCondition_Click(sender As Object, e As EventArgs) Handles btnCondition.Click
 
-        Dim conditions As New List(Of ルール.ルール1)
-        Dim condition As ルール.ルール1
+        Dim conditions As New List(Of ルール.ルール4)
+        Dim condition As ルール.ルール4
         Using parser As New TextFieldParser(Me.txtCondition.Text, Encoding.GetEncoding("SHIFT_JIS"))
             parser.TextFieldType = FieldType.Delimited
             parser.SetDelimiters(",")
@@ -332,25 +258,22 @@ Public Class BackTestForm
                     '' 先頭行はタイトル
                     isFirst = False
                 Else
-                    condition = New ルール.ルール1
-                    If Me.rdoRule3.Checked Then
-                        condition.移動平均5増減率 = Convert.ToDecimal(row(0))
-                        condition.移動平均75増減率 = Convert.ToDecimal(row(1))
-                        condition.売経過日数 = Convert.ToDecimal(row(2))
-                        condition.期間開始 = Convert.ToDateTime(row(3))
-                        condition.期間終了 = Convert.ToDateTime(row(4))
-                    Else
-                        condition.移動平均5増減率 = Convert.ToDecimal(row(0))
-                        condition.売経過日数 = Convert.ToDecimal(row(1))
-                        condition.期間開始 = Convert.ToDateTime(row(2))
-                        condition.期間終了 = Convert.ToDateTime(row(3))
-                    End If
+                    condition = New ルール.ルール4
+                    condition.移動平均5開始増減率 = Convert.ToDecimal(row(0))
+                    condition.移動平均5終了増減率 = Convert.ToDecimal(row(1))
+                    condition.移動平均25開始増減率 = Convert.ToDecimal(row(2))
+                    condition.移動平均25終了増減率 = Convert.ToDecimal(row(3))
+                    condition.移動平均75開始増減率 = Convert.ToDecimal(row(4))
+                    condition.移動平均75終了増減率 = Convert.ToDecimal(row(5))
+                    condition.売経過日数 = Convert.ToDecimal(row(6))
+                    condition.期間開始 = Convert.ToDateTime(row(7))
+                    condition.期間終了 = Convert.ToDateTime(row(8))
                     conditions.Add(condition)
                 End If
             End While
         End Using
 
-        Dim maxRule As ルール.ルール1
+        Dim maxRule As ルール.ルール4
         Dim maxKing As Decimal = 0
         Dim rIdx As Integer = 0
         For Each row In CType(Me.dgv企業情報.DataSource, List(Of 企業情報))
@@ -363,42 +286,40 @@ Public Class BackTestForm
             Await Task.Run(Sub()
 
                                For Each condition In conditions
-                                   If Me.rdo5.Checked Then
-                                       Dim rule As New Rule1(prices, condition.移動平均5増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
-                                       rule.Calc()
+                                   Dim rule As New Rule4(prices, condition)
+                                   rule.Calc()
+                                   If rule.売買回数 > 0 Then
                                        If maxKing < rule.評価額 Then
                                            maxKing = rule.評価額
                                            maxRule = condition
                                        End If
                                    End If
-
-                                   If Me.rdo75.Checked Then
-                                       Dim rule As New Rule2(prices, condition.移動平均5増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
-                                       rule.Calc()
-                                       If maxKing < rule.評価額 Then
-                                           maxKing = rule.評価額
-                                           maxRule = condition
-                                       End If
-                                   End If
-
-                                   If Me.rdoRule3.Checked Then
-                                       Dim rule As New Rule3(prices, condition.移動平均5増減率, condition.移動平均75増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
-                                       rule.Calc()
-                                       If maxKing < rule.評価額 Then
-                                           maxKing = rule.評価額
-                                           maxRule = condition
-                                       End If
-                                   End If
-
                                Next
-
                            End Sub)
 
-            Me.dgv企業情報.Rows(rIdx).Cells(2).Value = maxRule.移動平均5増減率
-            Me.dgv企業情報.Rows(rIdx).Cells(3).Value = maxRule.売経過日数
-            Me.dgv企業情報.Rows(rIdx).Cells(4).Value = maxRule.期間開始
-            Me.dgv企業情報.Rows(rIdx).Cells(5).Value = maxRule.期間終了
-            Me.dgv企業情報.Rows(rIdx).Cells(6).Value = maxKing
+            If maxRule IsNot Nothing Then
+                Me.dgv企業情報.Rows(rIdx).Cells(2).Value = maxRule.移動平均5開始増減率
+                Me.dgv企業情報.Rows(rIdx).Cells(3).Value = maxRule.移動平均5終了増減率
+                Me.dgv企業情報.Rows(rIdx).Cells(4).Value = maxRule.移動平均25開始増減率
+                Me.dgv企業情報.Rows(rIdx).Cells(5).Value = maxRule.移動平均25終了増減率
+                Me.dgv企業情報.Rows(rIdx).Cells(6).Value = maxRule.移動平均75開始増減率
+                Me.dgv企業情報.Rows(rIdx).Cells(7).Value = maxRule.移動平均75終了増減率
+                Me.dgv企業情報.Rows(rIdx).Cells(8).Value = maxRule.売経過日数
+                Me.dgv企業情報.Rows(rIdx).Cells(9).Value = maxRule.期間開始
+                Me.dgv企業情報.Rows(rIdx).Cells(10).Value = maxRule.期間終了
+                Me.dgv企業情報.Rows(rIdx).Cells(11).Value = maxKing
+            Else
+                Me.dgv企業情報.Rows(rIdx).Cells(2).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(3).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(4).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(5).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(6).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(7).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(8).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(9).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(10).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(11).Value = ""
+            End If
 
             rIdx = rIdx + 1
         Next
