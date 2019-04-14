@@ -5,8 +5,8 @@ Imports OGA.BI
 Imports OGA.BL
 Imports OGA.Utility
 
-Public Class BackTestForm2
-    Private Sub BackTestForm2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+Public Class CheckForm
+    Private Sub BackTestForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim companybl As New BL.CompanyBL
         Dim companies = companybl.Select企業情報()
         Me.dgv企業情報.AutoGenerateColumns = False
@@ -118,7 +118,6 @@ Public Class BackTestForm2
                                           rule.売買回数))
 
 
-        Me.DataGridView2.DataSource = rule.テスト結果
 
         DisplayChart(rule.テスト結果)
 
@@ -239,92 +238,5 @@ Public Class BackTestForm2
 
     End Sub
 
-    Private Async Sub btnCondition_Click(sender As Object, e As EventArgs) Handles btnCondition.Click
 
-        Dim conditions As New List(Of ルール.ルール4)
-        Dim condition As ルール.ルール4
-        Using parser As New TextFieldParser(Me.txtCondition.Text, Encoding.GetEncoding("SHIFT_JIS"))
-            parser.TextFieldType = FieldType.Delimited
-            parser.SetDelimiters(",")
-
-            parser.HasFieldsEnclosedInQuotes = False
-            parser.TrimWhiteSpace = False
-
-            Dim isFirst As Boolean = True
-            While Not parser.EndOfData
-                Dim row As String() = parser.ReadFields()
-
-                If isFirst Then
-                    '' 先頭行はタイトル
-                    isFirst = False
-                Else
-                    condition = New ルール.ルール4
-                    condition.移動平均5開始増減率 = Convert.ToDecimal(row(0))
-                    condition.移動平均5終了増減率 = Convert.ToDecimal(row(1))
-                    condition.移動平均25開始増減率 = Convert.ToDecimal(row(2))
-                    condition.移動平均25終了増減率 = Convert.ToDecimal(row(3))
-                    condition.移動平均75開始増減率 = Convert.ToDecimal(row(4))
-                    condition.移動平均75終了増減率 = Convert.ToDecimal(row(5))
-                    condition.売経過日数 = Convert.ToDecimal(row(6))
-                    condition.期間開始 = Convert.ToDateTime(row(7))
-                    condition.期間終了 = Convert.ToDateTime(row(8))
-                    conditions.Add(condition)
-                End If
-            End While
-        End Using
-
-        Dim maxRule As ルール.ルール4
-        Dim maxKing As Decimal = 0
-        Dim rIdx As Integer = 0
-        For Each row In CType(Me.dgv企業情報.DataSource, List(Of 企業情報))
-            maxRule = Nothing
-            maxKing = 0
-            Dim pricebl As New PriceBL
-            Dim prices As List(Of 移動平均)
-            prices = pricebl.Select移動平均(row.証券コード)
-
-            Await Task.Run(Sub()
-
-                               For Each condition In conditions
-                                   Dim rule As New Rule4(prices, condition)
-                                   rule.Calc()
-                                   If rule.売買回数 > 0 Then
-                                       If maxKing < rule.評価額 Then
-                                           maxKing = rule.評価額
-                                           maxRule = condition
-                                       End If
-                                   End If
-                               Next
-                           End Sub)
-
-            If maxRule IsNot Nothing Then
-                Me.dgv企業情報.Rows(rIdx).Cells(2).Value = maxRule.移動平均5開始増減率
-                Me.dgv企業情報.Rows(rIdx).Cells(3).Value = maxRule.移動平均5終了増減率
-                Me.dgv企業情報.Rows(rIdx).Cells(4).Value = maxRule.移動平均25開始増減率
-                Me.dgv企業情報.Rows(rIdx).Cells(5).Value = maxRule.移動平均25終了増減率
-                Me.dgv企業情報.Rows(rIdx).Cells(6).Value = maxRule.移動平均75開始増減率
-                Me.dgv企業情報.Rows(rIdx).Cells(7).Value = maxRule.移動平均75終了増減率
-                Me.dgv企業情報.Rows(rIdx).Cells(8).Value = maxRule.売経過日数
-                Me.dgv企業情報.Rows(rIdx).Cells(9).Value = maxRule.期間開始
-                Me.dgv企業情報.Rows(rIdx).Cells(10).Value = maxRule.期間終了
-                Me.dgv企業情報.Rows(rIdx).Cells(11).Value = maxKing
-            Else
-                Me.dgv企業情報.Rows(rIdx).Cells(2).Value = ""
-                Me.dgv企業情報.Rows(rIdx).Cells(3).Value = ""
-                Me.dgv企業情報.Rows(rIdx).Cells(4).Value = ""
-                Me.dgv企業情報.Rows(rIdx).Cells(5).Value = ""
-                Me.dgv企業情報.Rows(rIdx).Cells(6).Value = ""
-                Me.dgv企業情報.Rows(rIdx).Cells(7).Value = ""
-                Me.dgv企業情報.Rows(rIdx).Cells(8).Value = ""
-                Me.dgv企業情報.Rows(rIdx).Cells(9).Value = ""
-                Me.dgv企業情報.Rows(rIdx).Cells(10).Value = ""
-                Me.dgv企業情報.Rows(rIdx).Cells(11).Value = ""
-            End If
-
-            rIdx = rIdx + 1
-        Next
-
-
-
-    End Sub
 End Class

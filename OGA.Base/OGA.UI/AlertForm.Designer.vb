@@ -22,16 +22,16 @@ Partial Class AlertForm
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgv株価増減マイナス = New System.Windows.Forms.DataGridView()
         Me.証券コード = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.企業名 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -82,6 +82,8 @@ Partial Class AlertForm
         Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.dtpBase = New System.Windows.Forms.DateTimePicker()
+        Me.btnAlert = New System.Windows.Forms.Button()
         CType(Me.dgv株価増減マイナス, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv株価増減プラス, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgv出来高増減マイナス, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,7 +104,7 @@ Partial Class AlertForm
         Me.dgv株価増減マイナス.AllowUserToResizeRows = False
         Me.dgv株価増減マイナス.ColumnHeadersHeight = 40
         Me.dgv株価増減マイナス.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.証券コード, Me.企業名, Me.株価増減率})
-        Me.dgv株価増減マイナス.Location = New System.Drawing.Point(12, 27)
+        Me.dgv株価増減マイナス.Location = New System.Drawing.Point(12, 56)
         Me.dgv株価増減マイナス.Name = "dgv株価増減マイナス"
         Me.dgv株価増減マイナス.RowHeadersVisible = False
         Me.dgv株価増減マイナス.RowTemplate.Height = 24
@@ -128,10 +130,10 @@ Partial Class AlertForm
         '株価増減率
         '
         Me.株価増減率.DataPropertyName = "株価増減率"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle1.Format = "0.00%"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.株価増減率.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle11.Format = "0.00%"
+        DataGridViewCellStyle11.NullValue = Nothing
+        Me.株価増減率.DefaultCellStyle = DataGridViewCellStyle11
         Me.株価増減率.HeaderText = "株価増減率"
         Me.株価増減率.Name = "株価増減率"
         Me.株価増減率.Width = 70
@@ -139,7 +141,7 @@ Partial Class AlertForm
         'lblMinus
         '
         Me.lblMinus.AutoSize = True
-        Me.lblMinus.Location = New System.Drawing.Point(12, 9)
+        Me.lblMinus.Location = New System.Drawing.Point(12, 38)
         Me.lblMinus.Name = "lblMinus"
         Me.lblMinus.Size = New System.Drawing.Size(112, 15)
         Me.lblMinus.TabIndex = 7
@@ -153,7 +155,7 @@ Partial Class AlertForm
         Me.dgv株価増減プラス.AllowUserToResizeRows = False
         Me.dgv株価増減プラス.ColumnHeadersHeight = 40
         Me.dgv株価増減プラス.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
-        Me.dgv株価増減プラス.Location = New System.Drawing.Point(12, 330)
+        Me.dgv株価増減プラス.Location = New System.Drawing.Point(12, 359)
         Me.dgv株価増減プラス.Name = "dgv株価増減プラス"
         Me.dgv株価増減プラス.RowHeadersVisible = False
         Me.dgv株価増減プラス.RowTemplate.Height = 24
@@ -179,10 +181,10 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.DataPropertyName = "株価増減率"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Format = "0.00%"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle12.Format = "0.00%"
+        DataGridViewCellStyle12.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn3.DefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridViewTextBoxColumn3.HeaderText = "株価増減率"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.Width = 70
@@ -190,7 +192,7 @@ Partial Class AlertForm
         'lblPlus
         '
         Me.lblPlus.AutoSize = True
-        Me.lblPlus.Location = New System.Drawing.Point(12, 312)
+        Me.lblPlus.Location = New System.Drawing.Point(12, 341)
         Me.lblPlus.Name = "lblPlus"
         Me.lblPlus.Size = New System.Drawing.Size(99, 15)
         Me.lblPlus.TabIndex = 7
@@ -204,7 +206,7 @@ Partial Class AlertForm
         Me.dgv出来高増減マイナス.AllowUserToResizeRows = False
         Me.dgv出来高増減マイナス.ColumnHeadersHeight = 40
         Me.dgv出来高増減マイナス.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6})
-        Me.dgv出来高増減マイナス.Location = New System.Drawing.Point(242, 27)
+        Me.dgv出来高増減マイナス.Location = New System.Drawing.Point(242, 56)
         Me.dgv出来高増減マイナス.Name = "dgv出来高増減マイナス"
         Me.dgv出来高増減マイナス.RowHeadersVisible = False
         Me.dgv出来高増減マイナス.RowTemplate.Height = 24
@@ -230,10 +232,10 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "出来高増減率"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "0.00%"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle13.Format = "0.00%"
+        DataGridViewCellStyle13.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn6.DefaultCellStyle = DataGridViewCellStyle13
         Me.DataGridViewTextBoxColumn6.HeaderText = "出来高増減率"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.Width = 70
@@ -241,7 +243,7 @@ Partial Class AlertForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(242, 9)
+        Me.Label1.Location = New System.Drawing.Point(242, 38)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(127, 15)
         Me.Label1.TabIndex = 7
@@ -255,7 +257,7 @@ Partial Class AlertForm
         Me.dgv出来高増減プラス.AllowUserToResizeRows = False
         Me.dgv出来高増減プラス.ColumnHeadersHeight = 40
         Me.dgv出来高増減プラス.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9})
-        Me.dgv出来高増減プラス.Location = New System.Drawing.Point(245, 331)
+        Me.dgv出来高増減プラス.Location = New System.Drawing.Point(245, 360)
         Me.dgv出来高増減プラス.Name = "dgv出来高増減プラス"
         Me.dgv出来高増減プラス.RowHeadersVisible = False
         Me.dgv出来高増減プラス.RowTemplate.Height = 24
@@ -281,10 +283,10 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn9
         '
         Me.DataGridViewTextBoxColumn9.DataPropertyName = "出来高増減率"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.Format = "0.00%"
-        DataGridViewCellStyle4.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle14.Format = "0.00%"
+        DataGridViewCellStyle14.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn9.DefaultCellStyle = DataGridViewCellStyle14
         Me.DataGridViewTextBoxColumn9.HeaderText = "出来高増減率"
         Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
         Me.DataGridViewTextBoxColumn9.Width = 70
@@ -292,7 +294,7 @@ Partial Class AlertForm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(245, 313)
+        Me.Label2.Location = New System.Drawing.Point(245, 342)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(114, 15)
         Me.Label2.TabIndex = 7
@@ -306,7 +308,7 @@ Partial Class AlertForm
         Me.dgv移動平均5乖離率マイナス.AllowUserToResizeRows = False
         Me.dgv移動平均5乖離率マイナス.ColumnHeadersHeight = 40
         Me.dgv移動平均5乖離率マイナス.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12})
-        Me.dgv移動平均5乖離率マイナス.Location = New System.Drawing.Point(472, 27)
+        Me.dgv移動平均5乖離率マイナス.Location = New System.Drawing.Point(472, 56)
         Me.dgv移動平均5乖離率マイナス.Name = "dgv移動平均5乖離率マイナス"
         Me.dgv移動平均5乖離率マイナス.RowHeadersVisible = False
         Me.dgv移動平均5乖離率マイナス.RowTemplate.Height = 24
@@ -332,10 +334,10 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn12
         '
         Me.DataGridViewTextBoxColumn12.DataPropertyName = "移動平均5乖離率"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle5.Format = "0.00%"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle15.Format = "0.00%"
+        DataGridViewCellStyle15.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn12.DefaultCellStyle = DataGridViewCellStyle15
         Me.DataGridViewTextBoxColumn12.HeaderText = "移動平均5乖離率"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.Width = 70
@@ -343,7 +345,7 @@ Partial Class AlertForm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(472, 9)
+        Me.Label3.Location = New System.Drawing.Point(472, 38)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(165, 15)
         Me.Label3.TabIndex = 7
@@ -357,7 +359,7 @@ Partial Class AlertForm
         Me.dgv移動平均5乖離率プラス.AllowUserToResizeRows = False
         Me.dgv移動平均5乖離率プラス.ColumnHeadersHeight = 40
         Me.dgv移動平均5乖離率プラス.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15})
-        Me.dgv移動平均5乖離率プラス.Location = New System.Drawing.Point(475, 330)
+        Me.dgv移動平均5乖離率プラス.Location = New System.Drawing.Point(475, 359)
         Me.dgv移動平均5乖離率プラス.Name = "dgv移動平均5乖離率プラス"
         Me.dgv移動平均5乖離率プラス.RowHeadersVisible = False
         Me.dgv移動平均5乖離率プラス.RowTemplate.Height = 24
@@ -383,10 +385,10 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn15
         '
         Me.DataGridViewTextBoxColumn15.DataPropertyName = "移動平均5乖離率"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Format = "0.00%"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle16.Format = "0.00%"
+        DataGridViewCellStyle16.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn15.DefaultCellStyle = DataGridViewCellStyle16
         Me.DataGridViewTextBoxColumn15.HeaderText = "移動平均5乖離率"
         Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
         Me.DataGridViewTextBoxColumn15.Width = 70
@@ -394,7 +396,7 @@ Partial Class AlertForm
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(475, 312)
+        Me.Label4.Location = New System.Drawing.Point(475, 341)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(152, 15)
         Me.Label4.TabIndex = 7
@@ -403,7 +405,7 @@ Partial Class AlertForm
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(705, 312)
+        Me.Label5.Location = New System.Drawing.Point(705, 341)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(152, 15)
         Me.Label5.TabIndex = 10
@@ -412,7 +414,7 @@ Partial Class AlertForm
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(702, 9)
+        Me.Label6.Location = New System.Drawing.Point(702, 38)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(173, 15)
         Me.Label6.TabIndex = 11
@@ -426,7 +428,7 @@ Partial Class AlertForm
         Me.dgv移動平均25乖離率プラス.AllowUserToResizeRows = False
         Me.dgv移動平均25乖離率プラス.ColumnHeadersHeight = 40
         Me.dgv移動平均25乖離率プラス.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18})
-        Me.dgv移動平均25乖離率プラス.Location = New System.Drawing.Point(705, 330)
+        Me.dgv移動平均25乖離率プラス.Location = New System.Drawing.Point(705, 359)
         Me.dgv移動平均25乖離率プラス.Name = "dgv移動平均25乖離率プラス"
         Me.dgv移動平均25乖離率プラス.RowHeadersVisible = False
         Me.dgv移動平均25乖離率プラス.RowTemplate.Height = 24
@@ -452,10 +454,10 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn18
         '
         Me.DataGridViewTextBoxColumn18.DataPropertyName = "移動平均25乖離率"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle7.Format = "0.00%"
-        DataGridViewCellStyle7.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle17.Format = "0.00%"
+        DataGridViewCellStyle17.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn18.DefaultCellStyle = DataGridViewCellStyle17
         Me.DataGridViewTextBoxColumn18.HeaderText = "移動平均25乖離率"
         Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
         Me.DataGridViewTextBoxColumn18.Width = 70
@@ -468,7 +470,7 @@ Partial Class AlertForm
         Me.dgv移動平均25乖離率マイナス.AllowUserToResizeRows = False
         Me.dgv移動平均25乖離率マイナス.ColumnHeadersHeight = 40
         Me.dgv移動平均25乖離率マイナス.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21})
-        Me.dgv移動平均25乖離率マイナス.Location = New System.Drawing.Point(702, 27)
+        Me.dgv移動平均25乖離率マイナス.Location = New System.Drawing.Point(702, 56)
         Me.dgv移動平均25乖離率マイナス.Name = "dgv移動平均25乖離率マイナス"
         Me.dgv移動平均25乖離率マイナス.RowHeadersVisible = False
         Me.dgv移動平均25乖離率マイナス.RowTemplate.Height = 24
@@ -494,10 +496,10 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn21
         '
         Me.DataGridViewTextBoxColumn21.DataPropertyName = "移動平均25乖離率"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle8.Format = "0.00%"
-        DataGridViewCellStyle8.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn21.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle18.Format = "0.00%"
+        DataGridViewCellStyle18.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn21.DefaultCellStyle = DataGridViewCellStyle18
         Me.DataGridViewTextBoxColumn21.HeaderText = "移動平均25乖離率"
         Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
         Me.DataGridViewTextBoxColumn21.Width = 70
@@ -505,7 +507,7 @@ Partial Class AlertForm
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(935, 312)
+        Me.Label7.Location = New System.Drawing.Point(935, 341)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(160, 15)
         Me.Label7.TabIndex = 14
@@ -514,7 +516,7 @@ Partial Class AlertForm
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(932, 9)
+        Me.Label8.Location = New System.Drawing.Point(932, 38)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(173, 15)
         Me.Label8.TabIndex = 15
@@ -528,7 +530,7 @@ Partial Class AlertForm
         Me.dgv移動平均75乖離率プラス.AllowUserToResizeRows = False
         Me.dgv移動平均75乖離率プラス.ColumnHeadersHeight = 40
         Me.dgv移動平均75乖離率プラス.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24})
-        Me.dgv移動平均75乖離率プラス.Location = New System.Drawing.Point(935, 330)
+        Me.dgv移動平均75乖離率プラス.Location = New System.Drawing.Point(935, 359)
         Me.dgv移動平均75乖離率プラス.Name = "dgv移動平均75乖離率プラス"
         Me.dgv移動平均75乖離率プラス.RowHeadersVisible = False
         Me.dgv移動平均75乖離率プラス.RowTemplate.Height = 24
@@ -554,10 +556,10 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn24
         '
         Me.DataGridViewTextBoxColumn24.DataPropertyName = "移動平均75乖離率"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle9.Format = "0.00%"
-        DataGridViewCellStyle9.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle19.Format = "0.00%"
+        DataGridViewCellStyle19.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle19
         Me.DataGridViewTextBoxColumn24.HeaderText = "移動平均75乖離率"
         Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
         Me.DataGridViewTextBoxColumn24.Width = 70
@@ -570,7 +572,7 @@ Partial Class AlertForm
         Me.dgv移動平均75乖離率マイナス.AllowUserToResizeRows = False
         Me.dgv移動平均75乖離率マイナス.ColumnHeadersHeight = 40
         Me.dgv移動平均75乖離率マイナス.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27})
-        Me.dgv移動平均75乖離率マイナス.Location = New System.Drawing.Point(932, 27)
+        Me.dgv移動平均75乖離率マイナス.Location = New System.Drawing.Point(932, 56)
         Me.dgv移動平均75乖離率マイナス.Name = "dgv移動平均75乖離率マイナス"
         Me.dgv移動平均75乖離率マイナス.RowHeadersVisible = False
         Me.dgv移動平均75乖離率マイナス.RowTemplate.Height = 24
@@ -596,19 +598,37 @@ Partial Class AlertForm
         'DataGridViewTextBoxColumn27
         '
         Me.DataGridViewTextBoxColumn27.DataPropertyName = "移動平均75乖離率"
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle10.Format = "0.00%"
-        DataGridViewCellStyle10.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn27.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle20.Format = "0.00%"
+        DataGridViewCellStyle20.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn27.DefaultCellStyle = DataGridViewCellStyle20
         Me.DataGridViewTextBoxColumn27.HeaderText = "移動平均75乖離率"
         Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
         Me.DataGridViewTextBoxColumn27.Width = 70
+        '
+        'dtpBase
+        '
+        Me.dtpBase.Location = New System.Drawing.Point(15, 13)
+        Me.dtpBase.Name = "dtpBase"
+        Me.dtpBase.Size = New System.Drawing.Size(200, 22)
+        Me.dtpBase.TabIndex = 16
+        '
+        'btnAlert
+        '
+        Me.btnAlert.Location = New System.Drawing.Point(222, 13)
+        Me.btnAlert.Name = "btnAlert"
+        Me.btnAlert.Size = New System.Drawing.Size(75, 23)
+        Me.btnAlert.TabIndex = 17
+        Me.btnAlert.Text = "アラート"
+        Me.btnAlert.UseVisualStyleBackColor = True
         '
         'AlertForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1188, 625)
+        Me.ClientSize = New System.Drawing.Size(1188, 664)
+        Me.Controls.Add(Me.btnAlert)
+        Me.Controls.Add(Me.dtpBase)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.dgv移動平均75乖離率プラス)
@@ -697,4 +717,6 @@ Partial Class AlertForm
     Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
+    Friend WithEvents dtpBase As DateTimePicker
+    Friend WithEvents btnAlert As Button
 End Class

@@ -83,6 +83,12 @@
     <Compile Include="AlertForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CheckForm.Designer.vb">
+      <DependentUpon>CheckForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CheckForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BackTestForm2.Designer.vb">
       <DependentUpon>BackTestForm2.vb</DependentUpon>
     </Compile>
@@ -145,6 +151,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AlertForm.resx">
       <DependentUpon>AlertForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckForm.resx">
+      <DependentUpon>CheckForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BackTestForm2.resx">
       <DependentUpon>BackTestForm2.vb</DependentUpon>
