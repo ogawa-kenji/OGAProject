@@ -267,7 +267,11 @@ Public Class BackTestForm2
                     condition.移動平均75終了増減率 = Convert.ToDecimal(row(5))
                     condition.売経過日数 = Convert.ToDecimal(row(6))
                     condition.期間開始 = Convert.ToDateTime(row(7))
-                    condition.期間終了 = Convert.ToDateTime(row(8))
+                    If DateTime.TryParse(row(8), Nothing) Then
+                        condition.期間終了 = Convert.ToDateTime(row(8))
+                    Else
+                        condition.期間終了 = Now.Date
+                    End If
                     conditions.Add(condition)
                 End If
             End While

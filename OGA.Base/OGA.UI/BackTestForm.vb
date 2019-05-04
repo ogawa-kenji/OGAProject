@@ -338,12 +338,20 @@ Public Class BackTestForm
                         condition.移動平均75増減率 = Convert.ToDecimal(row(1))
                         condition.売経過日数 = Convert.ToDecimal(row(2))
                         condition.期間開始 = Convert.ToDateTime(row(3))
-                        condition.期間終了 = Convert.ToDateTime(row(4))
+                        If DateTime.TryParse(row(4), Nothing) Then
+                            condition.期間終了 = Convert.ToDateTime(row(4))
+                        Else
+                            condition.期間終了 = Now.Date
+                        End If
                     Else
                         condition.移動平均5増減率 = Convert.ToDecimal(row(0))
                         condition.売経過日数 = Convert.ToDecimal(row(1))
                         condition.期間開始 = Convert.ToDateTime(row(2))
-                        condition.期間終了 = Convert.ToDateTime(row(3))
+                        If DateTime.TryParse(row(3), Nothing) Then
+                            condition.期間終了 = Convert.ToDateTime(row(3))
+                        Else
+                            condition.期間終了 = Now.Date
+                        End If
                     End If
                     conditions.Add(condition)
                 End If
@@ -366,27 +374,33 @@ Public Class BackTestForm
                                    If Me.rdo5.Checked Then
                                        Dim rule As New Rule1(prices, condition.移動平均5増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
                                        rule.Calc()
-                                       If maxKing < rule.評価額 Then
-                                           maxKing = rule.評価額
-                                           maxRule = condition
+                                       If rule.売買回数 > 0 Then
+                                           If maxKing < rule.評価額 Then
+                                               maxKing = rule.評価額
+                                               maxRule = condition
+                                           End If
                                        End If
                                    End If
 
                                    If Me.rdo75.Checked Then
                                        Dim rule As New Rule2(prices, condition.移動平均5増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
                                        rule.Calc()
-                                       If maxKing < rule.評価額 Then
-                                           maxKing = rule.評価額
-                                           maxRule = condition
+                                       If rule.売買回数 > 0 Then
+                                           If maxKing < rule.評価額 Then
+                                               maxKing = rule.評価額
+                                               maxRule = condition
+                                           End If
                                        End If
                                    End If
 
                                    If Me.rdoRule3.Checked Then
                                        Dim rule As New Rule3(prices, condition.移動平均5増減率, condition.移動平均75増減率, condition.売経過日数, condition.期間開始, condition.期間終了)
                                        rule.Calc()
-                                       If maxKing < rule.評価額 Then
-                                           maxKing = rule.評価額
-                                           maxRule = condition
+                                       If rule.売買回数 > 0 Then
+                                           If maxKing < rule.評価額 Then
+                                               maxKing = rule.評価額
+                                               maxRule = condition
+                                           End If
                                        End If
                                    End If
 
@@ -394,11 +408,19 @@ Public Class BackTestForm
 
                            End Sub)
 
-            Me.dgv企業情報.Rows(rIdx).Cells(2).Value = maxRule.移動平均5増減率
-            Me.dgv企業情報.Rows(rIdx).Cells(3).Value = maxRule.売経過日数
-            Me.dgv企業情報.Rows(rIdx).Cells(4).Value = maxRule.期間開始
-            Me.dgv企業情報.Rows(rIdx).Cells(5).Value = maxRule.期間終了
-            Me.dgv企業情報.Rows(rIdx).Cells(6).Value = maxKing
+            If maxRule IsNot Nothing Then
+                Me.dgv企業情報.Rows(rIdx).Cells(2).Value = maxRule.移動平均5増減率
+                Me.dgv企業情報.Rows(rIdx).Cells(3).Value = maxRule.売経過日数
+                Me.dgv企業情報.Rows(rIdx).Cells(4).Value = maxRule.期間開始
+                Me.dgv企業情報.Rows(rIdx).Cells(5).Value = maxRule.期間終了
+                Me.dgv企業情報.Rows(rIdx).Cells(6).Value = maxKing
+            Else
+                Me.dgv企業情報.Rows(rIdx).Cells(2).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(3).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(4).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(5).Value = ""
+                Me.dgv企業情報.Rows(rIdx).Cells(6).Value = ""
+            End If
 
             rIdx = rIdx + 1
         Next
