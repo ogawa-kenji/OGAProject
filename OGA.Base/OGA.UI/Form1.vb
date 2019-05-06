@@ -55,4 +55,12 @@ Public Class Form1
 
 
     End Sub
+
+    Private Sub BaseText1_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Me.BaseText3.ReadOnly = Not Me.BaseText3.ReadOnly
+    End Sub
 End Class

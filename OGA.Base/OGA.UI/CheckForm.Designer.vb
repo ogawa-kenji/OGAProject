@@ -29,9 +29,9 @@ Partial Class CheckForm
         Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.dgv企業情報 = New System.Windows.Forms.DataGridView()
-        Me.chartPrice = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.証券コード = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.企業名 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.chartPrice = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.splitContainer = New System.Windows.Forms.SplitContainer()
         Me.cart出来高 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -46,6 +46,9 @@ Partial Class CheckForm
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txt移動平均75乖離率開始 = New System.Windows.Forms.TextBox()
         Me.txt移動平均75乖離率終了 = New System.Windows.Forms.TextBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.dtp終了 = New System.Windows.Forms.DateTimePicker()
+        Me.dtp開始 = New System.Windows.Forms.DateTimePicker()
         CType(Me.dgv企業情報, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.chartPrice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.splitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,6 +73,21 @@ Partial Class CheckForm
         Me.dgv企業情報.Size = New System.Drawing.Size(175, 527)
         Me.dgv企業情報.TabIndex = 5
         '
+        '証券コード
+        '
+        Me.証券コード.DataPropertyName = "証券コード"
+        Me.証券コード.HeaderText = "証券コード"
+        Me.証券コード.Name = "証券コード"
+        Me.証券コード.ReadOnly = True
+        Me.証券コード.Width = 50
+        '
+        '企業名
+        '
+        Me.企業名.DataPropertyName = "企業名"
+        Me.企業名.HeaderText = "企業名"
+        Me.企業名.Name = "企業名"
+        Me.企業名.ReadOnly = True
+        '
         'chartPrice
         '
         Me.chartPrice.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -88,21 +106,6 @@ Partial Class CheckForm
         Me.chartPrice.Size = New System.Drawing.Size(888, 328)
         Me.chartPrice.TabIndex = 8
         Me.chartPrice.Text = "Chart1"
-        '
-        '証券コード
-        '
-        Me.証券コード.DataPropertyName = "証券コード"
-        Me.証券コード.HeaderText = "証券コード"
-        Me.証券コード.Name = "証券コード"
-        Me.証券コード.ReadOnly = True
-        Me.証券コード.Width = 50
-        '
-        '企業名
-        '
-        Me.企業名.DataPropertyName = "企業名"
-        Me.企業名.HeaderText = "企業名"
-        Me.企業名.Name = "企業名"
-        Me.企業名.ReadOnly = True
         '
         'splitContainer
         '
@@ -158,6 +161,7 @@ Partial Class CheckForm
         Me.txt移動平均5乖離率開始.Name = "txt移動平均5乖離率開始"
         Me.txt移動平均5乖離率開始.Size = New System.Drawing.Size(100, 22)
         Me.txt移動平均5乖離率開始.TabIndex = 13
+        Me.txt移動平均5乖離率開始.Text = "-0.06"
         '
         'Label2
         '
@@ -174,6 +178,7 @@ Partial Class CheckForm
         Me.txt移動平均5乖離率終了.Name = "txt移動平均5乖離率終了"
         Me.txt移動平均5乖離率終了.Size = New System.Drawing.Size(100, 22)
         Me.txt移動平均5乖離率終了.TabIndex = 13
+        Me.txt移動平均5乖離率終了.Text = "-0.05"
         '
         'Label3
         '
@@ -199,6 +204,7 @@ Partial Class CheckForm
         Me.txt移動平均25乖離率開始.Name = "txt移動平均25乖離率開始"
         Me.txt移動平均25乖離率開始.Size = New System.Drawing.Size(100, 22)
         Me.txt移動平均25乖離率開始.TabIndex = 13
+        Me.txt移動平均25乖離率開始.Text = "-0.11"
         '
         'txt移動平均25乖離率終了
         '
@@ -206,6 +212,7 @@ Partial Class CheckForm
         Me.txt移動平均25乖離率終了.Name = "txt移動平均25乖離率終了"
         Me.txt移動平均25乖離率終了.Size = New System.Drawing.Size(100, 22)
         Me.txt移動平均25乖離率終了.TabIndex = 13
+        Me.txt移動平均25乖離率終了.Text = "-0.10"
         '
         'Label5
         '
@@ -231,6 +238,7 @@ Partial Class CheckForm
         Me.txt移動平均75乖離率開始.Name = "txt移動平均75乖離率開始"
         Me.txt移動平均75乖離率開始.Size = New System.Drawing.Size(100, 22)
         Me.txt移動平均75乖離率開始.TabIndex = 13
+        Me.txt移動平均75乖離率開始.Text = "-0.16"
         '
         'txt移動平均75乖離率終了
         '
@@ -238,12 +246,41 @@ Partial Class CheckForm
         Me.txt移動平均75乖離率終了.Name = "txt移動平均75乖離率終了"
         Me.txt移動平均75乖離率終了.Size = New System.Drawing.Size(100, 22)
         Me.txt移動平均75乖離率終了.TabIndex = 13
+        Me.txt移動平均75乖離率終了.Text = "-0.15"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(762, 15)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(22, 15)
+        Me.Label7.TabIndex = 16
+        Me.Label7.Text = "～"
+        '
+        'dtp終了
+        '
+        Me.dtp終了.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp終了.Location = New System.Drawing.Point(791, 12)
+        Me.dtp終了.Name = "dtp終了"
+        Me.dtp終了.Size = New System.Drawing.Size(127, 22)
+        Me.dtp終了.TabIndex = 14
+        '
+        'dtp開始
+        '
+        Me.dtp開始.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtp開始.Location = New System.Drawing.Point(629, 12)
+        Me.dtp開始.Name = "dtp開始"
+        Me.dtp開始.Size = New System.Drawing.Size(127, 22)
+        Me.dtp開始.TabIndex = 15
         '
         'CheckForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1099, 551)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.dtp終了)
+        Me.Controls.Add(Me.dtp開始)
         Me.Controls.Add(Me.txt移動平均75乖離率終了)
         Me.Controls.Add(Me.txt移動平均25乖離率終了)
         Me.Controls.Add(Me.txt移動平均5乖離率終了)
@@ -291,4 +328,7 @@ Partial Class CheckForm
     Friend WithEvents Label6 As Label
     Friend WithEvents txt移動平均75乖離率開始 As TextBox
     Friend WithEvents txt移動平均75乖離率終了 As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents dtp終了 As DateTimePicker
+    Friend WithEvents dtp開始 As DateTimePicker
 End Class

@@ -33,4 +33,9 @@
         Dim frm As New BackTestForm2
         frm.Show()
     End Sub
+
+    Private Sub LblForm1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblForm1.LinkClicked
+        Dim frm As New Form1
+        frm.Show()
+    End Sub
 End Class

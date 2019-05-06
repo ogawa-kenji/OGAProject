@@ -91,7 +91,7 @@ Public Class CheckForm
         Dim beginDate As DateTime = Now.AddYears(-3).Date
         Dim endDate As DateTime = prices(prices.Count - 1).日付
 
-        Dim condition As New ルール.ルール4
+        Dim condition As New ルール.ルール5
         Try
             condition.移動平均5開始増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(2).Value)
             condition.移動平均5終了増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(3).Value)
@@ -99,7 +99,6 @@ Public Class CheckForm
             condition.移動平均25終了増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(5).Value)
             condition.移動平均75開始増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(6).Value)
             condition.移動平均75終了増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(7).Value)
-            condition.売経過日数 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(8).Value)
             condition.期間開始 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(9).Value)
             condition.期間終了 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(10).Value)
         Catch ex As Exception
@@ -107,19 +106,19 @@ Public Class CheckForm
             Return
         End Try
 
-        Dim rule As New Rule4(prices, condition)
-        rule.Calc()
+        'Dim rule As New Rule4(prices, condition)
+        'rule.Calc()
 
-        Debug.WriteLine(String.Format("{0} 評価:{1} 現金:{2} 株数:{3} 回数:{4}",
-                                          beginDate.ToString("yyyy/MM/dd"),
-                                          rule.評価額,
-                                          rule.現金,
-                                          rule.株数,
-                                          rule.売買回数))
+        'Debug.WriteLine(String.Format("{0} 評価:{1} 現金:{2} 株数:{3} 回数:{4}",
+        '                                  beginDate.ToString("yyyy/MM/dd"),
+        '                                  rule.評価額,
+        '                                  rule.現金,
+        '                                  rule.株数,
+        '                                  rule.売買回数))
 
 
 
-        DisplayChart(rule.テスト結果)
+        'DisplayChart(rule.テスト結果)
 
     End Sub
 
