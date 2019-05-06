@@ -2,14 +2,14 @@
 Imports System.Drawing
 Imports System.Windows.Forms
 
-<ToolboxItem("TextBox")>
+<ToolboxItem(True)>
 Public Class BaseText
     Inherits System.Windows.Forms.TextBox
 
     Private _InitBaseBackColor As System.Drawing.Color = System.Drawing.SystemColors.Window
     Private _InitFocusBackColor As System.Drawing.Color = System.Drawing.Color.LightBlue
     Private _InitReadOnlyBackColor As System.Drawing.Color = System.Drawing.SystemColors.ControlDark
-    Private _InitFont As Font
+    Private _InitFont As Font = New Font("ＭＳ ゴシック", 10)
     Private alreadyFocused As Boolean
 
 
@@ -138,12 +138,33 @@ Public Class BaseText
     End Property
 #End Region
 
+#Region " Font"
+    <EditorBrowsable(EditorBrowsableState.Always)>
+    <DisplayName("Font")>
+    Public Shadows Property Font As Font
+        Get
+            Return MyBase.Font
+        End Get
+        Set(value As Font)
+            MyBase.Font = value
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' ReadOnlyの既定値
+    ''' </summary>
+    ''' <returns></returns>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Function ShouldSerializeFont() As Boolean
+        Return Not Font.Equals(_InitFont)
+    End Function
+#End Region
+
     Protected Overrides Sub OnEnter(e As EventArgs)
         MyBase.OnEnter(e)
         If Me.ReadOnly = False Then
             '' 使用可能
             Me.BackColor = Me.FocusBackColor
-
             If MouseButtons = MouseButtons.None Then
                 '' 全選択
                 Me.SelectAll()
@@ -166,8 +187,8 @@ Public Class BaseText
             If alreadyFocused = False AndAlso Me.SelectionLength = 0 Then
                 '' 全選択
                 Me.SelectAll()
-                alreadyFocused = True
             End If
+            alreadyFocused = True
         End If
     End Sub
 
@@ -187,6 +208,7 @@ Public Class BaseText
         Me.BaseBackColor = _InitBaseBackColor
         Me.FocusBackColor = _InitFocusBackColor
         Me.ReadOnlyBackColor = _InitReadOnlyBackColor
+        Me.Font = _InitFont
     End Sub
 
 End Class
