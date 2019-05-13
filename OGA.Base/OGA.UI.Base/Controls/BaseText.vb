@@ -1,6 +1,9 @@
 ﻿Imports System.ComponentModel
 Imports System.Drawing
+Imports System.Text
 Imports System.Windows.Forms
+Imports NLog
+Imports OGA.Utility
 
 <ToolboxItem(True)>
 Public Class BaseText
@@ -10,6 +13,7 @@ Public Class BaseText
     Private _InitFocusBackColor As System.Drawing.Color = System.Drawing.Color.LightBlue
     Private _InitReadOnlyBackColor As System.Drawing.Color = System.Drawing.SystemColors.ControlDark
     Private _InitFont As Font = New Font("ＭＳ ゴシック", 10)
+    Private _InitMaxLineCnt As Decimal = 1
     Private alreadyFocused As Boolean
 
 
@@ -138,6 +142,24 @@ Public Class BaseText
     End Property
 #End Region
 
+#Region " MultiLine"
+    ''' <summary>
+    ''' MultiLineプロパティ
+    ''' </summary>
+    ''' <returns></returns>
+    <Browsable(True)>
+    <DisplayName("MultiLine")>
+    Public Shadows Property MultiLine As Boolean
+        Get
+            Return MyBase.Multiline
+        End Get
+        Set(value As Boolean)
+            MyBase.WordWrap = False
+            MyBase.Multiline = value
+        End Set
+    End Property
+#End Region
+
 #Region " Font"
     <EditorBrowsable(EditorBrowsableState.Always)>
     <DisplayName("Font")>
@@ -160,7 +182,47 @@ Public Class BaseText
     End Function
 #End Region
 
+#Region " StrLength"
+    ''' <summary>
+    ''' 文字数
+    ''' </summary>
+    ''' <returns></returns>
+    <EditorBrowsable(EditorBrowsableState.Always)>
+    <DisplayName("StrLength")>
+    Public Shadows ReadOnly Property StrLength As Decimal
+        Get
+            Return New System.Globalization.StringInfo(Me.Text).LengthInTextElements
+        End Get
+    End Property
+#End Region
+
+#Region " MaxLineCnt"
+    <EditorBrowsable(EditorBrowsableState.Always)>
+    <DisplayName("MaxLineCnt")>
+    Public Property MaxLineCnt As Decimal
+
+    ''' <summary>
+    ''' ReadOnlyの既定値
+    ''' </summary>
+    ''' <returns></returns>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Function ShouldSerializeMaxLineCnt() As Boolean
+        Return Not MaxLineCnt.Equals(_InitMaxLineCnt)
+    End Function
+    ''' <summary>
+    ''' ReadOnlyのリセット値
+    ''' </summary>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Sub ResetMaxLineCnt()
+        Me.MaxLineCnt = _InitMaxLineCnt
+    End Sub
+#End Region
+
+
     Protected Overrides Sub OnEnter(e As EventArgs)
+        '' ログ出力
+        LogUtil.LogInfo(LogUtil.LogText(Me.FindForm.Name, Me.Name, Me.Text))
+
         MyBase.OnEnter(e)
         If Me.ReadOnly = False Then
             '' 使用可能
@@ -202,6 +264,23 @@ Public Class BaseText
             Me.BackColor = Me.ReadOnlyBackColor
         End If
         alreadyFocused = False
+
+        '' ログ出力
+        LogUtil.LogInfo(LogUtil.LogText(Me.FindForm.Name, Me.Name, Me.Text))
+    End Sub
+
+    Protected Overrides Sub OnKeyPress(e As KeyPressEventArgs)
+        MyBase.OnKeyPress(e)
+        If Me.MultiLine AndAlso e.KeyChar = Chr(Keys.Enter) Then
+            If Me.StrLength - New System.Globalization.StringInfo(Me.Text.Replace(Environment.NewLine, "")).LengthInTextElements >= (Me.MaxLineCnt - 1) * 2 Then
+                e.Handled = True
+                Return
+            End If
+        End If
+    End Sub
+
+    Protected Overrides Sub OnKeyDown(e As KeyEventArgs)
+        MyBase.OnKeyDown(e)
     End Sub
 
     Private Sub Initialize()
@@ -209,6 +288,57 @@ Public Class BaseText
         Me.FocusBackColor = _InitFocusBackColor
         Me.ReadOnlyBackColor = _InitReadOnlyBackColor
         Me.Font = _InitFont
+        Me.MaxLineCnt = _InitMaxLineCnt
     End Sub
+
+    Protected Overrides Sub WndProc(ByRef m As Message)
+        Const WM_PASTE As Integer = &H302
+
+        Select Case m.Msg
+            Case WM_PASTE
+                '' 貼り付け
+                Me.OnPaste(New System.EventArgs)
+                Return
+
+        End Select
+
+        MyBase.WndProc(m)
+
+    End Sub
+
+    Protected Overridable Sub OnPaste(e As System.EventArgs)
+        Dim cliplen = clipboardStrLength()
+        Dim start = Me.SelectionStart
+        Me.Text = pasteText()
+        Me.SelectionStart = start + cliplen
+    End Sub
+
+    Private Function clipboardStrLength() As Integer
+        Dim strClipboard As String = ""
+        'Dim iData As IDataObject = Clipboard.GetDataObject()
+        'If iData.GetDataPresent(DataFormats.UnicodeText) Then
+        '    strClipboard = Clipboard.GetDataObject().GetData(System.Windows.Forms.DataFormats.UnicodeText).ToString()
+        'End If
+        If (Clipboard.ContainsText) Then
+            strClipboard = Clipboard.GetText
+        End If
+        Return New System.Globalization.StringInfo(strClipboard).LengthInTextElements
+    End Function
+
+    Private Function pasteText() As String
+        Dim strClipboard As String = ""
+        'Dim iData As IDataObject = Clipboard.GetDataObject()
+        'If iData.GetDataPresent(DataFormats.UnicodeText) Then
+        '    strClipboard = Clipboard.GetDataObject().GetData(System.Windows.Forms.DataFormats.UnicodeText).ToString()
+        'End If
+        If (Clipboard.ContainsText) Then
+            strClipboard = Clipboard.GetText
+        End If
+        Dim start = Me.SelectionStart
+        Dim strText = Me.Text
+        strText = strText.Remove(start, Me.SelectionLength)
+        strText = strText.Insert(start, strClipboard)
+        Return strText
+    End Function
 
 End Class

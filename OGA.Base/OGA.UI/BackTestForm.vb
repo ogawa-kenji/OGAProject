@@ -214,7 +214,6 @@ Public Class BackTestForm
         Next
 
         Dim dp As DataPoint
-        Dim dpCol As DataPoint
         Dim dpAvg5 As DataPoint
         Dim dpAvg25 As DataPoint
         Dim dpAvg75 As DataPoint

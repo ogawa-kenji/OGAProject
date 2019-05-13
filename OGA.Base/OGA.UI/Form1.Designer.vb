@@ -32,6 +32,10 @@ Partial Class Form1
         Me.BaseText3 = New OGA.UI.Base.BaseText(Me.components)
         Me.BaseText2 = New OGA.UI.Base.BaseText(Me.components)
         Me.BaseText1 = New OGA.UI.Base.BaseText(Me.components)
+        Me.txtCSV = New OGA.UI.Base.BaseText(Me.components)
+        Me.btnCSV = New System.Windows.Forms.Button()
+        Me.dgvCSV = New System.Windows.Forms.DataGridView()
+        CType(Me.dgvCSV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -72,7 +76,7 @@ Partial Class Form1
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(391, 250)
+        Me.Button5.Location = New System.Drawing.Point(445, 13)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 23)
         Me.Button5.TabIndex = 7
@@ -81,16 +85,19 @@ Partial Class Form1
         '
         'BaseText4
         '
-        Me.BaseText4.Location = New System.Drawing.Point(491, 308)
+        Me.BaseText4.Location = New System.Drawing.Point(339, 42)
+        Me.BaseText4.MultiLine = False
         Me.BaseText4.Name = "BaseText4"
         Me.BaseText4.Size = New System.Drawing.Size(100, 24)
         Me.BaseText4.TabIndex = 8
+        Me.BaseText4.Text = "𩸽𩸽"
         '
         'BaseText3
         '
         Me.BaseText3.BackColor = System.Drawing.SystemColors.ControlDark
         Me.BaseText3.BaseBackColor = System.Drawing.Color.Empty
-        Me.BaseText3.Location = New System.Drawing.Point(503, 251)
+        Me.BaseText3.Location = New System.Drawing.Point(526, 12)
+        Me.BaseText3.MultiLine = False
         Me.BaseText3.Name = "BaseText3"
         Me.BaseText3.ReadOnly = True
         Me.BaseText3.Size = New System.Drawing.Size(100, 24)
@@ -100,24 +107,60 @@ Partial Class Form1
         '
         'BaseText2
         '
-        Me.BaseText2.Location = New System.Drawing.Point(549, 117)
+        Me.BaseText2.Location = New System.Drawing.Point(117, 12)
+        Me.BaseText2.MaxLineCnt = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.BaseText2.MultiLine = True
+        Me.BaseText2.MultiLine = True
         Me.BaseText2.Name = "BaseText2"
-        Me.BaseText2.Size = New System.Drawing.Size(100, 24)
+        Me.BaseText2.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.BaseText2.Size = New System.Drawing.Size(194, 132)
         Me.BaseText2.TabIndex = 5
+        Me.BaseText2.WordWrap = False
         '
         'BaseText1
         '
         Me.BaseText1.BaseBackColor = System.Drawing.Color.Empty
-        Me.BaseText1.Location = New System.Drawing.Point(503, 197)
+        Me.BaseText1.Location = New System.Drawing.Point(339, 12)
+        Me.BaseText1.MultiLine = False
         Me.BaseText1.Name = "BaseText1"
         Me.BaseText1.Size = New System.Drawing.Size(100, 24)
         Me.BaseText1.TabIndex = 4
+        Me.BaseText1.Text = "森鷗外"
+        '
+        'txtCSV
+        '
+        Me.txtCSV.Location = New System.Drawing.Point(445, 42)
+        Me.txtCSV.MultiLine = False
+        Me.txtCSV.Name = "txtCSV"
+        Me.txtCSV.Size = New System.Drawing.Size(419, 24)
+        Me.txtCSV.TabIndex = 9
+        '
+        'btnCSV
+        '
+        Me.btnCSV.Location = New System.Drawing.Point(870, 43)
+        Me.btnCSV.Name = "btnCSV"
+        Me.btnCSV.Size = New System.Drawing.Size(75, 23)
+        Me.btnCSV.TabIndex = 10
+        Me.btnCSV.Text = "CSV"
+        Me.btnCSV.UseVisualStyleBackColor = True
+        '
+        'dgvCSV
+        '
+        Me.dgvCSV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvCSV.Location = New System.Drawing.Point(339, 72)
+        Me.dgvCSV.Name = "dgvCSV"
+        Me.dgvCSV.RowTemplate.Height = 24
+        Me.dgvCSV.Size = New System.Drawing.Size(669, 339)
+        Me.dgvCSV.TabIndex = 11
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1032, 450)
+        Me.Controls.Add(Me.dgvCSV)
+        Me.Controls.Add(Me.btnCSV)
+        Me.Controls.Add(Me.txtCSV)
         Me.Controls.Add(Me.BaseText4)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.BaseText3)
@@ -130,6 +173,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
+        CType(Me.dgvCSV, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -144,4 +188,7 @@ Partial Class Form1
     Friend WithEvents Button5 As Button
     Friend WithEvents BaseText4 As Base.BaseText
     Friend WithEvents BaseText1 As Base.BaseText
+    Friend WithEvents txtCSV As Base.BaseText
+    Friend WithEvents btnCSV As Button
+    Friend WithEvents dgvCSV As DataGridView
 End Class

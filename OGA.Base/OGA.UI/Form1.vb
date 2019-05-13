@@ -1,4 +1,6 @@
-﻿Imports OGA.BI
+﻿Imports System.Text
+Imports Microsoft.VisualBasic.FileIO
+Imports OGA.BI
 Imports OGA.BL
 Imports OGA.Utility
 
@@ -63,4 +65,38 @@ Public Class Form1
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Me.BaseText3.ReadOnly = Not Me.BaseText3.ReadOnly
     End Sub
+
+    Private Sub BtnCSV_Click(sender As Object, e As EventArgs) Handles btnCSV.Click
+        Dim lstCsv As New List(Of CSV_BI)
+        Using parser As New TextFieldParser(Me.txtCSV.Text, Encoding.GetEncoding("UTF-8"))
+            parser.TextFieldType = FieldType.Delimited
+            parser.SetDelimiters(",")
+            parser.HasFieldsEnclosedInQuotes = True
+            parser.TrimWhiteSpace = False
+
+            While Not parser.EndOfData
+
+                Dim row As String() = parser.ReadFields()
+                Dim csv As New CSV_BI
+                csv.EventName = row(0)
+                csv.FormName = row(1)
+                csv.ControlName = row(2)
+                csv.ControlText = row(3)
+                lstCsv.Add(csv)
+
+            End While
+
+        End Using
+
+        dgvCSV.DataSource = lstCsv
+
+
+    End Sub
+
+    Public Class CSV_BI
+        Public Property EventName As String
+        Public Property FormName As String
+        Public Property ControlName As String
+        Public Property ControlText As String
+    End Class
 End Class

@@ -18,7 +18,7 @@ Public Class HtmlUtil
     ''' Jcode.pmのgetcodeメソッドを移植したものです。
     ''' Jcode.pm(http://openlab.ring.gr.jp/Jcode/index-j.html)
     ''' Jcode.pmの著作権情報
-    ''' Copyright 1999-2005 Dan Kogai <dankogai@dan.co.jp>
+    ''' Copyright 1999-2005 Dan Kogai dankogai@dan.co.jp
     ''' This library is free software; you can redistribute it and/or modify it
     '''  under the same terms as Perl itself.
     ''' </remarks>
