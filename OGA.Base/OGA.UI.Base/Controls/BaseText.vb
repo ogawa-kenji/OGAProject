@@ -142,14 +142,14 @@ Public Class BaseText
     End Property
 #End Region
 
-#Region " MultiLine"
+#Region " Multiline"
     ''' <summary>
-    ''' MultiLineプロパティ
+    ''' Multilineプロパティ
     ''' </summary>
     ''' <returns></returns>
     <Browsable(True)>
-    <DisplayName("MultiLine")>
-    Public Shadows Property MultiLine As Boolean
+    <DisplayName("Multiline")>
+    Public Shadows Property Multiline As Boolean
         Get
             Return MyBase.Multiline
         End Get
@@ -189,6 +189,8 @@ Public Class BaseText
     ''' <returns></returns>
     <EditorBrowsable(EditorBrowsableState.Always)>
     <DisplayName("StrLength")>
+    <Category("独自プロパティ")>
+    <Description("テキストに入力された文字列の桁数を取得(サロゲートペア対応)")>
     Public Shadows ReadOnly Property StrLength As Decimal
         Get
             Return New System.Globalization.StringInfo(Me.Text).LengthInTextElements
@@ -272,6 +274,7 @@ Public Class BaseText
     Protected Overrides Sub OnKeyPress(e As KeyPressEventArgs)
         MyBase.OnKeyPress(e)
         If Me.MultiLine AndAlso e.KeyChar = Chr(Keys.Enter) Then
+            '' 最大行を超えない制限
             If Me.StrLength - New System.Globalization.StringInfo(Me.Text.Replace(Environment.NewLine, "")).LengthInTextElements >= (Me.MaxLineCnt - 1) * 2 Then
                 e.Handled = True
                 Return
@@ -309,9 +312,24 @@ Public Class BaseText
     Protected Overridable Sub OnPaste(e As System.EventArgs)
         Dim cliplen = clipboardStrLength()
         Dim start = Me.SelectionStart
-        Me.Text = pasteText()
+        Dim pasteStr As String = pasteText()
+        If PasteCheck(pasteStr) = False Then
+            Return
+        End If
+        Me.Text = pasteStr
         Me.SelectionStart = start + cliplen
     End Sub
+
+    Protected Overridable Function PasteCheck(pasteStr As String) As Boolean
+        If Me.Multiline Then
+            '' 最大行を超えない制限
+            If New System.Globalization.StringInfo(pasteStr).LengthInTextElements _
+                - New System.Globalization.StringInfo(pasteStr.Replace(Environment.NewLine, "")).LengthInTextElements >= Me.MaxLineCnt * 2 Then
+                Return False
+            End If
+        End If
+        Return True
+    End Function
 
     Private Function clipboardStrLength() As Integer
         Dim strClipboard As String = ""
@@ -325,7 +343,7 @@ Public Class BaseText
         Return New System.Globalization.StringInfo(strClipboard).LengthInTextElements
     End Function
 
-    Private Function pasteText() As String
+    Protected Overridable Function pasteText() As String
         Dim strClipboard As String = ""
         'Dim iData As IDataObject = Clipboard.GetDataObject()
         'If iData.GetDataPresent(DataFormats.UnicodeText) Then

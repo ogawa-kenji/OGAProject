@@ -80,6 +80,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.vb" />
+    <Compile Include="Controls\BaseNumber.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\BaseText.vb">
       <SubType>Component</SubType>
     </Compile>
