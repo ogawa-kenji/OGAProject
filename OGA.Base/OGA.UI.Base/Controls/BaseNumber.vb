@@ -9,6 +9,45 @@ Imports OGA.Utility
 Public Class BaseNumber
     Inherits BaseText
 
+    Public Sub New()
+        MyBase.New()
+        Initialize()
+    End Sub
+
+    Public Sub New(container As IContainer)
+        MyBase.New(container)
+        Initialize()
+    End Sub
+
+#Region " ImeMode"
+    <EditorBrowsable(EditorBrowsableState.Always)>
+    <DisplayName("ImeMode")>
+    Public Shadows Property ImeMode As ImeMode
+        Get
+            Return MyBase.ImeMode
+        End Get
+        Set(value As ImeMode)
+            MyBase.ImeMode = value
+        End Set
+    End Property
+
+    ''' <summary>
+    ''' ReadOnlyの既定値
+    ''' </summary>
+    ''' <returns></returns>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Function ShouldSerializeImeMode() As Boolean
+        Return Not ImeMode.Equals(ImeMode.Disable)
+    End Function
+    ''' <summary>
+    ''' ReadOnlyのリセット値
+    ''' </summary>
+    <EditorBrowsable(EditorBrowsableState.Never)>
+    Public Shadows Sub ResetImeMode()
+        Me.ImeMode = ImeMode.Disable
+    End Sub
+#End Region
+
 #Region " Multiline"
     ''' <summary>
     ''' Multilineプロパティ
@@ -73,7 +112,11 @@ Public Class BaseNumber
             Return _DecimalPlacese
         End Get
         Set(value As Integer)
-            _DecimalPlacese = value
+            If value < 0 Then
+                _DecimalPlacese = 0
+            Else
+                _DecimalPlacese = value
+            End If
         End Set
     End Property
 #End Region
@@ -93,16 +136,25 @@ Public Class BaseNumber
             Return _IntegerPlaces
         End Get
         Set(value As Integer)
-            _IntegerPlaces = value
+            If value < 0 Then
+                _IntegerPlaces = 0
+            Else
+                _IntegerPlaces = value
+            End If
         End Set
     End Property
 #End Region
+
+    Private Sub Initialize()
+        Me.ImeMode = ImeMode.Disable
+    End Sub
 
     Protected Overrides Sub OnValidated(e As EventArgs)
         MyBase.OnValidated(e)
         Dim num As Decimal
         If Decimal.TryParse(Me.Text, num) Then
-            Me.Text = num.ToString("#,#")
+            Dim decStr As String = StrDup(DecimalPlaces, "#")
+            Me.Text = num.ToString("#,##0." & decStr).TrimEnd("."c)
         Else
             Me.Text = ""
         End If

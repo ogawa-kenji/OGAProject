@@ -359,4 +359,13 @@ Public Class BaseText
         Return strText
     End Function
 
+    'イベント順番
+    'Enter Event
+    'GotFocus Event
+    'TextChanged Event
+    'Leave Event
+    'Validating Event
+    'Validated Event
+    'LostFocus Event
+
 End Class

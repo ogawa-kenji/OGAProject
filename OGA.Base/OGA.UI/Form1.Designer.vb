@@ -30,13 +30,13 @@ Partial Class Form1
         Me.Button5 = New System.Windows.Forms.Button()
         Me.btnCSV = New System.Windows.Forms.Button()
         Me.dgvCSV = New System.Windows.Forms.DataGridView()
+        Me.BaseNumber1 = New OGA.UI.Base.BaseNumber(Me.components)
+        Me.BaseText5 = New OGA.UI.Base.BaseText(Me.components)
         Me.txtCSV = New OGA.UI.Base.BaseText(Me.components)
         Me.BaseText4 = New OGA.UI.Base.BaseText(Me.components)
         Me.BaseText3 = New OGA.UI.Base.BaseText(Me.components)
         Me.BaseText2 = New OGA.UI.Base.BaseText(Me.components)
         Me.BaseText1 = New OGA.UI.Base.BaseText(Me.components)
-        Me.BaseText5 = New OGA.UI.Base.BaseText(Me.components)
-        Me.BaseNumber1 = New OGA.UI.Base.BaseNumber()
         CType(Me.dgvCSV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -103,10 +103,29 @@ Partial Class Form1
         Me.dgvCSV.Size = New System.Drawing.Size(669, 339)
         Me.dgvCSV.TabIndex = 11
         '
+        'BaseNumber1
+        '
+        Me.BaseNumber1.DecimalPlaces = 5
+        Me.BaseNumber1.IntegerPlaces = 0
+        Me.BaseNumber1.Location = New System.Drawing.Point(43, 321)
+        Me.BaseNumber1.Name = "BaseNumber1"
+        Me.BaseNumber1.NumValue = New Decimal(New Integer() {-539246434, 2, 0, 0})
+        Me.BaseNumber1.Size = New System.Drawing.Size(199, 24)
+        Me.BaseNumber1.TabIndex = 13
+        Me.BaseNumber1.Text = "12,345,655,454"
+        Me.BaseNumber1.WordWrap = False
+        '
+        'BaseText5
+        '
+        Me.BaseText5.Location = New System.Drawing.Point(394, 415)
+        Me.BaseText5.Name = "BaseText5"
+        Me.BaseText5.Size = New System.Drawing.Size(159, 24)
+        Me.BaseText5.TabIndex = 12
+        Me.BaseText5.WordWrap = False
+        '
         'txtCSV
         '
         Me.txtCSV.Location = New System.Drawing.Point(445, 42)
-        Me.txtCSV.MultiLine = False
         Me.txtCSV.Name = "txtCSV"
         Me.txtCSV.Size = New System.Drawing.Size(419, 24)
         Me.txtCSV.TabIndex = 9
@@ -115,7 +134,6 @@ Partial Class Form1
         'BaseText4
         '
         Me.BaseText4.Location = New System.Drawing.Point(339, 42)
-        Me.BaseText4.MultiLine = False
         Me.BaseText4.Name = "BaseText4"
         Me.BaseText4.Size = New System.Drawing.Size(100, 24)
         Me.BaseText4.TabIndex = 8
@@ -127,7 +145,6 @@ Partial Class Form1
         Me.BaseText3.BackColor = System.Drawing.SystemColors.ControlDark
         Me.BaseText3.BaseBackColor = System.Drawing.Color.Empty
         Me.BaseText3.Location = New System.Drawing.Point(526, 12)
-        Me.BaseText3.MultiLine = False
         Me.BaseText3.Name = "BaseText3"
         Me.BaseText3.ReadOnly = True
         Me.BaseText3.Size = New System.Drawing.Size(100, 24)
@@ -140,8 +157,7 @@ Partial Class Form1
         '
         Me.BaseText2.Location = New System.Drawing.Point(117, 12)
         Me.BaseText2.MaxLineCnt = New Decimal(New Integer() {5, 0, 0, 0})
-        Me.BaseText2.MultiLine = True
-        Me.BaseText2.MultiLine = True
+        Me.BaseText2.Multiline = True
         Me.BaseText2.Name = "BaseText2"
         Me.BaseText2.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.BaseText2.Size = New System.Drawing.Size(194, 132)
@@ -152,34 +168,11 @@ Partial Class Form1
         '
         Me.BaseText1.BaseBackColor = System.Drawing.Color.Empty
         Me.BaseText1.Location = New System.Drawing.Point(339, 12)
-        Me.BaseText1.MultiLine = False
         Me.BaseText1.Name = "BaseText1"
         Me.BaseText1.Size = New System.Drawing.Size(100, 24)
         Me.BaseText1.TabIndex = 4
         Me.BaseText1.Text = "森鷗外"
         Me.BaseText1.WordWrap = False
-        '
-        'BaseText5
-        '
-        Me.BaseText5.Location = New System.Drawing.Point(394, 415)
-        Me.BaseText5.MultiLine = False
-        Me.BaseText5.Name = "BaseText5"
-        Me.BaseText5.Size = New System.Drawing.Size(159, 24)
-        Me.BaseText5.TabIndex = 12
-        Me.BaseText5.WordWrap = False
-        '
-        'BaseNumber1
-        '
-        Me.BaseNumber1.DecimalPlaces = 0
-        Me.BaseNumber1.IntegerPlaces = 0
-        Me.BaseNumber1.Location = New System.Drawing.Point(43, 321)
-        Me.BaseNumber1.MultiLine = False
-        Me.BaseNumber1.Name = "BaseNumber1"
-        Me.BaseNumber1.NumValue = New Decimal(New Integer() {-539246434, 2, 0, 0})
-        Me.BaseNumber1.Size = New System.Drawing.Size(199, 24)
-        Me.BaseNumber1.TabIndex = 13
-        Me.BaseNumber1.Text = "12,345,655,454"
-        Me.BaseNumber1.WordWrap = False
         '
         'Form1
         '
