@@ -145,6 +145,23 @@ Public Class BaseNumber
     End Property
 #End Region
 
+    Protected Overrides Sub OnEnter(e As EventArgs)
+        Dim num As Decimal
+        If Decimal.TryParse(Me.Text, num) Then
+            Me.Text = num.ToString()
+        End If
+        MyBase.OnEnter(e)
+    End Sub
+
+    Protected Overrides Sub OnTextChanged(e As EventArgs)
+        MyBase.OnTextChanged(e)
+        If Me.NumValue.HasValue AndAlso Me.NumValue.Value < 0 Then
+            Me.ForeColor = Color.Red
+        Else
+            Me.ForeColor = Color.Black
+        End If
+    End Sub
+
     Private Sub Initialize()
         Me.ImeMode = ImeMode.Disable
     End Sub
