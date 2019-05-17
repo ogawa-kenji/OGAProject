@@ -89,7 +89,8 @@ Public Class BaseNumber
         Set(value As Decimal?)
             _NumValue = value
             If _NumValue.HasValue Then
-                Me.Text = _NumValue.Value.ToString("#,#")
+                Dim decStr As String = StrDup(DecimalPlaces, "#")
+                Me.Text = _NumValue.Value.ToString("#,##0." & decStr).TrimEnd("."c)
             Else
                 Me.Text = ""
             End If

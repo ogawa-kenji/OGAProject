@@ -1,4 +1,5 @@
-﻿Imports System.Text
+﻿Imports System.ComponentModel
+Imports System.Text
 Imports Microsoft.VisualBasic.FileIO
 Imports OGA.BI
 Imports OGA.BL
@@ -99,4 +100,12 @@ Public Class Form1
         Public Property ControlName As String
         Public Property ControlText As String
     End Class
+
+    Private Sub BaseNumber1_TextChanged(sender As Object, e As EventArgs) Handles BaseNumber1.TextChanged
+
+    End Sub
+
+    Private Sub BaseNumber1_Validating(sender As Object, e As CancelEventArgs) Handles BaseNumber1.Validating
+        Utility.Utility.NumberPlaces(BaseNumber1.NumValue.Value)
+    End Sub
 End Class

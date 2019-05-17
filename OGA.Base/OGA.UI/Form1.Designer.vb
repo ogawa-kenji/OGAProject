@@ -106,13 +106,14 @@ Partial Class Form1
         'BaseNumber1
         '
         Me.BaseNumber1.DecimalPlaces = 5
+        Me.BaseNumber1.ForeColor = System.Drawing.Color.Black
         Me.BaseNumber1.IntegerPlaces = 0
         Me.BaseNumber1.Location = New System.Drawing.Point(43, 321)
         Me.BaseNumber1.Name = "BaseNumber1"
-        Me.BaseNumber1.NumValue = New Decimal(New Integer() {-539246434, 2, 0, 0})
+        Me.BaseNumber1.NumValue = New Decimal(New Integer() {-539246433, 2, 0, 0})
         Me.BaseNumber1.Size = New System.Drawing.Size(199, 24)
         Me.BaseNumber1.TabIndex = 13
-        Me.BaseNumber1.Text = "12,345,655,454"
+        Me.BaseNumber1.Text = "12,345,655,455"
         Me.BaseNumber1.WordWrap = False
         '
         'BaseText5
