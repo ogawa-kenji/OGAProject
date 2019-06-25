@@ -12,7 +12,7 @@ Public Class AleartDA
         stbSql.Append("      , 出来高  ")
         stbSql.Append("      , 調整後終値  ")
         stbSql.Append("      , 前日出来高  ")
-        stbSql.Append("      , 前日株価  ")
+        stbSql.Append("      , CAST(前日株価 AS REAL) AS 前日株価 ")
         stbSql.Append("      , CASE WHEN 移動平均5件数  = 5  THEN 移動平均5  ELSE NULL END AS 移動平均5  ")
         stbSql.Append("      , CASE WHEN 移動平均25件数 = 25 THEN 移動平均25 ELSE NULL END AS 移動平均25  ")
         stbSql.Append("      , CASE WHEN 移動平均75件数 = 75 THEN 移動平均75 ELSE NULL END AS 移動平均75  ")
