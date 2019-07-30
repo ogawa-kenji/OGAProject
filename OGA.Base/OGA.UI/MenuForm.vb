@@ -38,4 +38,9 @@
         Dim frm As New Form1
         frm.Show()
     End Sub
+
+    Private Sub LblCheck_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblCheck.LinkClicked
+        Dim frm As New CheckForm
+        frm.Show()
+    End Sub
 End Class

@@ -7,10 +7,6 @@ Imports OGA.Utility
 
 Public Class CheckForm
     Private Sub BackTestForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim companybl As New BL.CompanyBL
-        Dim companies = companybl.Select企業情報()
-        Me.dgv企業情報.AutoGenerateColumns = False
-        Me.dgv企業情報.DataSource = companies
 
 
         '' チャート設定の初期化
@@ -77,13 +73,18 @@ Public Class CheckForm
 
         chartPrice.ChartAreas.Add(area)
 
+        Dim companybl As New BL.CompanyBL
+        Dim companies = companybl.Select企業情報()
+        Me.dgv企業情報.AutoGenerateColumns = False
+        Me.dgv企業情報.DataSource = companies
+
     End Sub
 
     Private Sub Rule4(証券コード As Decimal, rowIdx As Integer)
 
-        If Me.dgv企業情報.Rows(rowIdx).Cells(2).Value Is Nothing Then
-            Return
-        End If
+        'If Me.dgv企業情報.Rows(rowIdx).Cells(2).Value Is Nothing Then
+        '    Return
+        'End If
 
         Dim pricebl As New PriceBL
         Dim prices As List(Of 移動平均)
@@ -93,14 +94,14 @@ Public Class CheckForm
 
         Dim condition As New ルール.ルール5
         Try
-            condition.移動平均5開始増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(2).Value)
-            condition.移動平均5終了増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(3).Value)
-            condition.移動平均25開始増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(4).Value)
-            condition.移動平均25終了増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(5).Value)
-            condition.移動平均75開始増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(6).Value)
-            condition.移動平均75終了増減率 = Convert.ToDecimal(Me.dgv企業情報.Rows(rowIdx).Cells(7).Value)
-            condition.期間開始 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(9).Value)
-            condition.期間終了 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(10).Value)
+            condition.移動平均5開始増減率 = CType(Me.txt移動平均5乖離率開始.Text, Decimal?)
+            condition.移動平均5終了増減率 = CType(Me.txt移動平均5乖離率終了.Text, Decimal?)
+            condition.移動平均25開始増減率 = CType(Me.txt移動平均25乖離率開始.Text, Decimal?)
+            condition.移動平均25終了増減率 = CType(Me.txt移動平均25乖離率終了.Text, Decimal?)
+            condition.移動平均75開始増減率 = CType(Me.txt移動平均75乖離率開始.Text, Decimal?)
+            condition.移動平均75終了増減率 = CType(Me.txt移動平均75乖離率終了.Text, Decimal?)
+            'condition.期間開始 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(9).Value)
+            'condition.期間終了 = Convert.ToDateTime(Me.dgv企業情報.Rows(rowIdx).Cells(10).Value)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             Return
@@ -118,25 +119,27 @@ Public Class CheckForm
 
 
 
-        'DisplayChart(rule.テスト結果)
+        DisplayChart(証券コード, condition)
 
     End Sub
 
 
 
     Private Sub dgv企業情報_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv企業情報.CellContentDoubleClick
-        If e.RowIndex <> -1 Then
-            Dim companies As List(Of 企業情報) = CType(Me.dgv企業情報.DataSource, List(Of 企業情報))
-            Rule4(companies(e.RowIndex).証券コード, e.RowIndex)
-        End If
+
     End Sub
 
 
 
-    Private Sub DisplayChart(backTest As List(Of バックテスト))
+    Private Sub DisplayChart(証券コード As Decimal, condition As ルール.ルール5)
         For Each s In chartPrice.Series
             s.Points.Clear()
         Next
+
+        Dim pricebl As New PriceBL
+        Dim prices As List(Of 移動平均)
+        prices = pricebl.Select移動平均(証券コード)
+
 
         Dim dp As DataPoint
         Dim dpAvg5 As DataPoint
@@ -144,7 +147,7 @@ Public Class CheckForm
         Dim dpAvg75 As DataPoint
         Dim dpBuySell As DataPoint
 
-        Dim q = (From t In backTest
+        Dim q = (From t In prices
                  Where t.調整後終値 <> 0
                  Select t).ToList()
 
@@ -176,7 +179,7 @@ Public Class CheckForm
         Me.chartPrice.ChartAreas(0).AxisY.Maximum = xMax * 1.05
         Me.chartPrice.ChartAreas(0).AxisY.Minimum = xMin * 0.95
 
-        For Each r In backTest
+        For Each r In prices
             '' 折れ線グラフのポイントを設定
             If r.調整後終値 = 0 Then
                 Continue For
@@ -207,35 +210,40 @@ Public Class CheckForm
                 Me.chartPrice.Series(3).Points.Add(dpAvg75)
             End If
 
-            '' 買・売ポイント
-            If r.株買 Then
+            Dim avg5 As Boolean = False
+            If condition.移動平均5開始増減率 <= r.移動平均5乖離率 AndAlso
+               r.移動平均5乖離率 <= condition.移動平均5終了増減率 Then
+                avg5 = True
+            End If
+            Dim avg25 As Boolean = False
+            If condition.移動平均25開始増減率 <= r.移動平均25乖離率 AndAlso
+               r.移動平均25乖離率 <= condition.移動平均25終了増減率 Then
+                avg25 = True
+            End If
+            Dim avg75 As Boolean = False
+            If condition.移動平均75開始増減率 <= r.移動平均75乖離率 AndAlso
+               r.移動平均75乖離率 <= condition.移動平均75終了増減率 Then
+                avg75 = True
+            End If
+            If avg5 AndAlso avg25 AndAlso avg75 Then
                 dpBuySell = New DataPoint
                 dpBuySell.SetValueXY(r.日付, r.調整後終値)
-                dpBuySell.Label = "買"
+                dpBuySell.Label = "●"
                 Me.chartPrice.Series(4).Points.Add(dpBuySell)
             End If
-            If r.株売 Then
-                dpBuySell = New DataPoint
-                dpBuySell.SetValueXY(r.日付, r.調整後終値)
-                dpBuySell.Label = "売"
-                Me.chartPrice.Series(4).Points.Add(dpBuySell)
-            End If
-
-            '' 移動平均 直近15日の終値の平均
-            'Dim q = (From p In prices
-            '         Where p.日付 <= r.日付
-            '         Order By p.日付 Descending
-            '         Select p).Take(75)
-
-            'If q.Count = 75 Then
-            '    dpAvg = New DataPoint
-            '    dpAvg.SetValueXY(r.日付, q.Average(Function(d) d.移動平均75))
-            '    Me.chartPrice.Series(2).Points.Add(dpAvg)
-            'End If
 
         Next
 
     End Sub
 
+    Private Sub dgv企業情報_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles dgv企業情報.CellEnter
+        If e.RowIndex <> -1 Then
+            Dim companies As List(Of 企業情報) = CType(Me.dgv企業情報.DataSource, List(Of 企業情報))
+            Rule4(companies(e.RowIndex).証券コード, e.RowIndex)
+        End If
+    End Sub
 
+    Private Sub dgv企業情報_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgv企業情報.CellContentClick
+
+    End Sub
 End Class

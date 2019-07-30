@@ -160,7 +160,7 @@ Partial Class CheckForm
         Me.txt移動平均5乖離率開始.Location = New System.Drawing.Point(331, 12)
         Me.txt移動平均5乖離率開始.Name = "txt移動平均5乖離率開始"
         Me.txt移動平均5乖離率開始.Size = New System.Drawing.Size(100, 22)
-        Me.txt移動平均5乖離率開始.TabIndex = 13
+        Me.txt移動平均5乖離率開始.TabIndex = 0
         Me.txt移動平均5乖離率開始.Text = "-0.06"
         '
         'Label2
