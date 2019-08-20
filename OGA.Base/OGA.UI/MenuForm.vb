@@ -43,4 +43,9 @@
         Dim frm As New CheckForm
         frm.Show()
     End Sub
+
+    Private Sub LblDeviation_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblDeviation.LinkClicked
+        Dim frm As New DeviationRateForm
+        frm.Show()
+    End Sub
 End Class

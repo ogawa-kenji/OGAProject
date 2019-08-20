@@ -93,6 +93,12 @@
     <Compile Include="AlertForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DeviationRateForm.Designer.vb">
+      <DependentUpon>DeviationRateForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DeviationRateForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CheckForm.Designer.vb">
       <DependentUpon>CheckForm.vb</DependentUpon>
     </Compile>
@@ -161,6 +167,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AlertForm.resx">
       <DependentUpon>AlertForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviationRateForm.resx">
+      <DependentUpon>DeviationRateForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CheckForm.resx">
       <DependentUpon>CheckForm.vb</DependentUpon>

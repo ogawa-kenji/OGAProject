@@ -31,6 +31,7 @@ Partial Class MenuForm
         Me.lblBackTest2 = New System.Windows.Forms.LinkLabel()
         Me.lblForm1 = New System.Windows.Forms.LinkLabel()
         Me.lblCheck = New System.Windows.Forms.LinkLabel()
+        Me.lblDeviation = New System.Windows.Forms.LinkLabel()
         Me.SuspendLayout()
         '
         'lblUpdate
@@ -123,11 +124,22 @@ Partial Class MenuForm
         Me.lblCheck.TabStop = True
         Me.lblCheck.Text = "チェックフォーム"
         '
+        'lblDeviation
+        '
+        Me.lblDeviation.AutoSize = True
+        Me.lblDeviation.Location = New System.Drawing.Point(328, 47)
+        Me.lblDeviation.Name = "lblDeviation"
+        Me.lblDeviation.Size = New System.Drawing.Size(96, 15)
+        Me.lblDeviation.TabIndex = 8
+        Me.lblDeviation.TabStop = True
+        Me.lblDeviation.Text = "乖離率フォーム"
+        '
         'MenuForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblDeviation)
         Me.Controls.Add(Me.lblCheck)
         Me.Controls.Add(Me.lblForm1)
         Me.Controls.Add(Me.lblBackTest2)
@@ -154,4 +166,5 @@ Partial Class MenuForm
     Friend WithEvents lblBackTest2 As LinkLabel
     Friend WithEvents lblForm1 As LinkLabel
     Friend WithEvents lblCheck As LinkLabel
+    Friend WithEvents lblDeviation As LinkLabel
 End Class
