@@ -28,3 +28,6 @@
 /sql
 /OGA.Base/.vs/OGA.Base/v16/Server/sqlite3
 /OGA.Base/.vs/OGA.Base/v16/.suo
+/OGA.Base/OGA.Batch/bin/Debug
+/OGA.Base/OGA.Batch/My Project
+/OGA.Base/OGA.Batch/obj/Debug

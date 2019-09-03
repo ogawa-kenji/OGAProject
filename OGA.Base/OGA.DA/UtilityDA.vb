@@ -35,13 +35,13 @@ Public Class UtilityDA
     End Function
 
     Public Function Update株価(prices As List(Of 株価)) As DBResult
-        Dim result = Me.DBExecute("DELETE FROM 株価 WHERE 証券コード = :証券コード AND 日付 = :日付", prices)
-        If result.ReturnCd <> DBResult.ReturnCds._NORMAL Then
-            Return result
-        End If
+        'Dim result = Me.DBExecute("DELETE FROM 株価 WHERE 証券コード = :証券コード AND 日付 = :日付", prices)
+        'If result.ReturnCd <> DBResult.ReturnCds._NORMAL Then
+        '    Return result
+        'End If
 
         Dim stb As New StringBuilder
-        stb.AppendLine("INSERT INTO 株価 VALUES ")
+        stb.AppendLine("INSERT OR REPLACE INTO 株価 VALUES ")
         stb.AppendLine("( ")
         stb.AppendLine("     :証券コード ")
         stb.AppendLine("   , :企業名 ")

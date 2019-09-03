@@ -4,36 +4,36 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{11AEDF88-446D-483D-BCFF-C81D9E5D962D}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>OGA.BL</RootNamespace>
-    <AssemblyName>OGA.BL</AssemblyName>
+    <ProjectGuid>{329C7CF1-4868-4877-8591-87FC917E3596}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <StartupObject>OGA.Batch.Module1</StartupObject>
+    <RootNamespace>OGA.Batch</RootNamespace>
+    <AssemblyName>OGA.Batch</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>Windows</MyType>
+    <MyType>Console</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>..\..\bin\</OutputPath>
-    <DocumentationFile>OGA.BL.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <DocumentationFile>OGA.Batch.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\</OutputPath>
-    <DocumentationFile>OGA.BL.xml</DocumentationFile>
-    <NoWarn>
-    </NoWarn>
-    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>OGA.Batch.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -42,7 +42,7 @@
     <OptionCompare>Binary</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionStrict>On</OptionStrict>
+    <OptionStrict>Off</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
@@ -50,7 +50,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Transactions" />
+    <Reference Include="System.Deployment" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -69,10 +69,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AleartBL.vb" />
-    <Compile Include="Class1.vb" />
-    <Compile Include="CompanyBL.vb" />
-    <Compile Include="GoldenCrossBL.vb" />
+    <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -88,10 +85,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="PriceBL.vb" />
-    <Compile Include="StockPriceBL.vb" />
-    <Compile Include="TargetBL.vb" />
-    <Compile Include="UtilityBL.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -111,6 +104,10 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="App.config" />
+    <None Include="Sqlite.DB.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OGA.BI\OGA.BI.vbproj">
@@ -121,13 +118,13 @@
       <Project>{b7734d46-3ccf-4941-9033-3b630e90c199}</Project>
       <Name>OGA.BL.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGA.DA.Base\OGA.DA.Base.vbproj">
-      <Project>{d2a726a8-9ee5-4f88-b2b8-94e5025dea8c}</Project>
-      <Name>OGA.DA.Base</Name>
+    <ProjectReference Include="..\OGA.BL\OGA.BL.vbproj">
+      <Project>{11aedf88-446d-483d-bcff-c81d9e5d962d}</Project>
+      <Name>OGA.BL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OGA.DA\OGA.DA.vbproj">
-      <Project>{8f2110a5-3e7b-4b6e-9040-57096a3b0b1b}</Project>
-      <Name>OGA.DA</Name>
+    <ProjectReference Include="..\OGA.UI.Base\OGA.UI.Base.vbproj">
+      <Project>{488254e2-e2d4-44fd-8006-e1c0923a81e6}</Project>
+      <Name>OGA.UI.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\OGA.Utility\OGA.Utility.vbproj">
       <Project>{887118e1-6901-44d6-9a4e-3cc58786268d}</Project>

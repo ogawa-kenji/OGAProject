@@ -110,6 +110,10 @@ Public Class FinanceUtil
             xdoc = hu.ParseHtml(hu.GetHtml(url))
         End Try
 
+        If xdoc.ToString.IndexOf("該当する銘柄はありません") > 0 Then
+            Return
+        End If
+
         Dim ns = xdoc.Root.Name.Namespace
 
         Dim nextUrl As String = ""
@@ -122,7 +126,9 @@ Public Class FinanceUtil
                 nextUrl = r.Attribute("href").Value
             End If
         Next
-
+        If (From c In xdoc.Descendants(ns + "dt") Select c).FirstOrDefault.Value = "" Then
+            Return
+        End If
         Dim stockCd As Decimal = (From c In xdoc.Descendants(ns + "dt") Select c).FirstOrDefault.Value
         Dim company As String = (From c In xdoc.Descendants(ns + "h1") Select c).FirstOrDefault.Value
         Dim prices = From d In xdoc.Descendants(ns + "table")

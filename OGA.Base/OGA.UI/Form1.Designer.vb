@@ -37,6 +37,7 @@ Partial Class Form1
         Me.BaseText3 = New OGA.UI.Base.BaseText(Me.components)
         Me.BaseText2 = New OGA.UI.Base.BaseText(Me.components)
         Me.BaseText1 = New OGA.UI.Base.BaseText(Me.components)
+        Me.Button6 = New System.Windows.Forms.Button()
         CType(Me.dgvCSV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -175,11 +176,21 @@ Partial Class Form1
         Me.BaseText1.Text = "森鷗外"
         Me.BaseText1.WordWrap = False
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(12, 128)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 23)
+        Me.Button6.TabIndex = 14
+        Me.Button6.Text = "Button6"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1032, 450)
+        Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.BaseNumber1)
         Me.Controls.Add(Me.BaseText5)
         Me.Controls.Add(Me.dgvCSV)
@@ -217,4 +228,5 @@ Partial Class Form1
     Friend WithEvents dgvCSV As DataGridView
     Friend WithEvents BaseText5 As Base.BaseText
     Friend WithEvents BaseNumber1 As Base.BaseNumber
+    Friend WithEvents Button6 As Button
 End Class

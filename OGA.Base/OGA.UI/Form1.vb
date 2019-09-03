@@ -108,4 +108,16 @@ Public Class Form1
     Private Sub BaseNumber1_Validating(sender As Object, e As CancelEventArgs) Handles BaseNumber1.Validating
         Utility.Utility.NumberPlaces(BaseNumber1.NumValue.Value)
     End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim util As New FinanceUtil
+        Dim lst As New List(Of 株価)
+        For i As Integer = 4000 To 9999
+            lst = util.Get株価(i, Now.AddDays(-7), Now)
+            If lst.Count > 0 Then
+                Debug.WriteLine(lst(0).証券コード & " " & lst(0).企業名)
+            End If
+        Next
+
+    End Sub
 End Class

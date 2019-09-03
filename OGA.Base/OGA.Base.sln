@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OGA.DA.Base", "OGA.DA.Base\OGA.DA.Base.vbproj", "{D2A726A8-9EE5-4F88-B2B8-94E5025DEA8C}"
 EndProject
@@ -28,6 +28,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utility", "Utility", "{F71A9868-EA30-460E-B789-D22884A8E1C4}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OGA.Utility", "OGA.Utility\OGA.Utility.vbproj", "{887118E1-6901-44D6-9A4E-3CC58786268D}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "OGA.Batch", "OGA.Batch\OGA.Batch.vbproj", "{329C7CF1-4868-4877-8591-87FC917E3596}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{887118E1-6901-44D6-9A4E-3CC58786268D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{887118E1-6901-44D6-9A4E-3CC58786268D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{887118E1-6901-44D6-9A4E-3CC58786268D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{329C7CF1-4868-4877-8591-87FC917E3596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{329C7CF1-4868-4877-8591-87FC917E3596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{329C7CF1-4868-4877-8591-87FC917E3596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{329C7CF1-4868-4877-8591-87FC917E3596}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +86,7 @@ Global
 		{DE655177-E7EE-4FEC-8F46-0215992E9C9B} = {B19CDB5E-ECA9-4E8D-B011-D1AD7EA98D33}
 		{54FD4018-BB05-4A74-8BBF-FF1EF6DE2209} = {F0A333CF-F883-46BC-84FD-DBA68308BD86}
 		{887118E1-6901-44D6-9A4E-3CC58786268D} = {F71A9868-EA30-460E-B789-D22884A8E1C4}
+		{329C7CF1-4868-4877-8591-87FC917E3596} = {B19CDB5E-ECA9-4E8D-B011-D1AD7EA98D33}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F88FADA4-7086-4BC3-8BD5-898ECA11D852}
