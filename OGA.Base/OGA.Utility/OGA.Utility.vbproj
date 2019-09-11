@@ -76,9 +76,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuyAndSell1.vb" />
     <Compile Include="FinanceUtil.vb" />
     <Compile Include="HtmlUtil.vb" />
     <Compile Include="IBackTest.vb" />
+    <Compile Include="IBuyAndSell.vb" />
     <Compile Include="LogUtil.vb" />
     <Compile Include="Rule4.vb" />
     <Compile Include="Rule3.vb" />

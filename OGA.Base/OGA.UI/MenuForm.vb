@@ -48,4 +48,14 @@
         Dim frm As New DeviationRateForm
         frm.Show()
     End Sub
+
+    Private Sub lblTest_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
+        Dim frm As New BackTest
+        frm.Show()
+    End Sub
+
+    Private Sub LblStockPriceChart_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblStockPriceChart.LinkClicked
+        Dim frm As New StockPriceChart
+        frm.Show()
+    End Sub
 End Class

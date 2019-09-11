@@ -32,6 +32,8 @@ Partial Class MenuForm
         Me.lblForm1 = New System.Windows.Forms.LinkLabel()
         Me.lblCheck = New System.Windows.Forms.LinkLabel()
         Me.lblDeviation = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
+        Me.lblStockPriceChart = New System.Windows.Forms.LinkLabel()
         Me.SuspendLayout()
         '
         'lblUpdate
@@ -134,17 +136,39 @@ Partial Class MenuForm
         Me.lblDeviation.TabStop = True
         Me.lblDeviation.Text = "乖離率フォーム"
         '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Location = New System.Drawing.Point(12, 242)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(116, 15)
+        Me.LinkLabel2.TabIndex = 2
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "バックテストフォーム"
+        '
+        'lblStockPriceChart
+        '
+        Me.lblStockPriceChart.AutoSize = True
+        Me.lblStockPriceChart.Location = New System.Drawing.Point(14, 282)
+        Me.lblStockPriceChart.Name = "lblStockPriceChart"
+        Me.lblStockPriceChart.Size = New System.Drawing.Size(111, 15)
+        Me.lblStockPriceChart.TabIndex = 9
+        Me.lblStockPriceChart.TabStop = True
+        Me.lblStockPriceChart.Text = "全チャートフォーム"
+        '
         'MenuForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.lblStockPriceChart)
         Me.Controls.Add(Me.lblDeviation)
         Me.Controls.Add(Me.lblCheck)
         Me.Controls.Add(Me.lblForm1)
         Me.Controls.Add(Me.lblBackTest2)
         Me.Controls.Add(Me.lblGoldenCross)
         Me.Controls.Add(Me.lblAleart)
+        Me.Controls.Add(Me.LinkLabel2)
         Me.Controls.Add(Me.lblBackTest)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.lblChart)
@@ -167,4 +191,6 @@ Partial Class MenuForm
     Friend WithEvents lblForm1 As LinkLabel
     Friend WithEvents lblCheck As LinkLabel
     Friend WithEvents lblDeviation As LinkLabel
+    Friend WithEvents LinkLabel2 As LinkLabel
+    Friend WithEvents lblStockPriceChart As LinkLabel
 End Class

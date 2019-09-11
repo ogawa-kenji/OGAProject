@@ -93,6 +93,18 @@
     <Compile Include="AlertForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="BackTest.Designer.vb">
+      <DependentUpon>BackTest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BackTest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockPriceChart.Designer.vb">
+      <DependentUpon>StockPriceChart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StockPriceChart.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DeviationRateForm.Designer.vb">
       <DependentUpon>DeviationRateForm.vb</DependentUpon>
     </Compile>
@@ -167,6 +179,12 @@
   <ItemGroup>
     <EmbeddedResource Include="AlertForm.resx">
       <DependentUpon>AlertForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackTest.resx">
+      <DependentUpon>BackTest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockPriceChart.resx">
+      <DependentUpon>StockPriceChart.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeviationRateForm.resx">
       <DependentUpon>DeviationRateForm.vb</DependentUpon>

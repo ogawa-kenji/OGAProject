@@ -131,5 +131,10 @@
       <Name>OGA.Utility</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="StockCodeList.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
