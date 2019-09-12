@@ -189,6 +189,8 @@ Public Class StockPriceChart
         '出来高
         chartPrice.Series.Add(GetColumnSeries("volume", "volume", 2, Color.Black))
 
+        chartPrice.Series.Add(GetPointSeries("point", "price", 3, Color.OrangeRed))
+
 
 
 
@@ -212,6 +214,19 @@ Public Class StockPriceChart
         series.Name = name
         series.ChartArea = chartArea
         series.ChartType = SeriesChartType.Column
+        series.BorderWidth = width
+        series.XValueType = ChartValueType.Date
+        series.YValueType = ChartValueType.Int64
+        series.IsVisibleInLegend = False
+        series.Color = color
+        Return series
+    End Function
+
+    Public Function GetPointSeries(name As String, chartArea As String, width As Integer, color As Color) As Series
+        Dim series As New Series
+        series.Name = name
+        series.ChartArea = chartArea
+        series.ChartType = SeriesChartType.Point
         series.BorderWidth = width
         series.XValueType = ChartValueType.Date
         series.YValueType = ChartValueType.Int64
@@ -297,6 +312,10 @@ Public Class StockPriceChart
             'Me.chartPrice.Series("price").Points.Add(dp)
             ChartSetValue(r.日付, r.調整後終値, "price")
 
+            If r.移動平均5乖離率 <= -0.05 AndAlso r.移動平均75乖離率 <= -0.2 Then
+                ChartSetPoint(r.日付, r.調整後終値, "point")
+            End If
+
             '移動平均
             If Me.chk5.Checked Then
                 ChartSetValue(r.日付, r.移動平均5, "avg5")
@@ -378,6 +397,19 @@ Public Class StockPriceChart
         End Try
     End Sub
 
+    Private Sub ChartSetPoint(d As Date, v As Double?, name As String)
+        Dim dp = New DataPoint
+        dp.BorderWidth = 4
+        dp.Color = Color.OrangeRed
+        dp.SetValueXY(d, v)
+        Try
+            Me.chartPrice.Series(name).Points.Add(dp)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+
+    End Sub
+
     Private Sub TxtFilter_TextChanged(sender As Object, e As EventArgs) Handles txtFilter.TextChanged
         Dim filtered As List(Of StockPriceList)
         filtered = (From t In csvList
@@ -401,5 +433,11 @@ Public Class StockPriceChart
 
     Private Sub Chk5_CheckedChanged(sender As Object, e As EventArgs) Handles chk5.CheckedChanged, chk25.CheckedChanged, chk75.CheckedChanged, chk200.CheckedChanged
         DisplayChart(dispCode)
+    End Sub
+
+    Private Sub BtnOneYear_Click(sender As Object, e As EventArgs) Handles btnOneYear.Click
+        Me.dtp終了.Value = Now.Date
+        Me.dtp開始.Value = Now.Date.AddYears(-1)
+        Me.DisplayChart(dispCode)
     End Sub
 End Class

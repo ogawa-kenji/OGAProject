@@ -39,10 +39,12 @@ Partial Class StockPriceChart
         Me.chk25 = New System.Windows.Forms.CheckBox()
         Me.chk75 = New System.Windows.Forms.CheckBox()
         Me.chk200 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.btnOneYear = New System.Windows.Forms.Button()
         CType(Me.chartPrice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
+        Me.SuspendLayout
         '
         'chartPrice
         '
@@ -59,7 +61,7 @@ Partial Class StockPriceChart
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.chartPrice.Series.Add(Series1)
-        Me.chartPrice.Size = New System.Drawing.Size(582, 570)
+        Me.chartPrice.Size = New System.Drawing.Size(914, 570)
         Me.chartPrice.TabIndex = 3
         Me.chartPrice.Text = "Chart1"
         '
@@ -128,7 +130,7 @@ Partial Class StockPriceChart
         'chk5
         '
         Me.chk5.AutoSize = True
-        Me.chk5.Location = New System.Drawing.Point(501, 14)
+        Me.chk5.Location = New System.Drawing.Point(597, 14)
         Me.chk5.Name = "chk5"
         Me.chk5.Size = New System.Drawing.Size(37, 19)
         Me.chk5.TabIndex = 8
@@ -138,7 +140,7 @@ Partial Class StockPriceChart
         'chk25
         '
         Me.chk25.AutoSize = True
-        Me.chk25.Location = New System.Drawing.Point(544, 14)
+        Me.chk25.Location = New System.Drawing.Point(640, 14)
         Me.chk25.Name = "chk25"
         Me.chk25.Size = New System.Drawing.Size(45, 19)
         Me.chk25.TabIndex = 8
@@ -148,7 +150,7 @@ Partial Class StockPriceChart
         'chk75
         '
         Me.chk75.AutoSize = True
-        Me.chk75.Location = New System.Drawing.Point(595, 14)
+        Me.chk75.Location = New System.Drawing.Point(691, 14)
         Me.chk75.Name = "chk75"
         Me.chk75.Size = New System.Drawing.Size(45, 19)
         Me.chk75.TabIndex = 8
@@ -158,18 +160,39 @@ Partial Class StockPriceChart
         'chk200
         '
         Me.chk200.AutoSize = True
-        Me.chk200.Location = New System.Drawing.Point(646, 14)
+        Me.chk200.Location = New System.Drawing.Point(742, 14)
         Me.chk200.Name = "chk200"
         Me.chk200.Size = New System.Drawing.Size(53, 19)
         Me.chk200.TabIndex = 8
         Me.chk200.Text = "200"
         Me.chk200.UseVisualStyleBackColor = True
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(802, 15)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(144, 19)
+        Me.CheckBox1.TabIndex = 9
+        Me.CheckBox1.Text = "乖離5-5% 75-20%"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'btnOneYear
+        '
+        Me.btnOneYear.Location = New System.Drawing.Point(501, 6)
+        Me.btnOneYear.Name = "btnOneYear"
+        Me.btnOneYear.Size = New System.Drawing.Size(38, 32)
+        Me.btnOneYear.TabIndex = 10
+        Me.btnOneYear.Text = "1年"
+        Me.btnOneYear.UseVisualStyleBackColor = True
+        '
         'StockPriceChart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 625)
+        Me.ClientSize = New System.Drawing.Size(1132, 625)
+        Me.Controls.Add(Me.btnOneYear)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.chk200)
         Me.Controls.Add(Me.chk75)
         Me.Controls.Add(Me.chk25)
@@ -187,7 +210,7 @@ Partial Class StockPriceChart
         CType(Me.dgvList, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.PerformLayout
 
     End Sub
     Friend WithEvents chartPrice As DataVisualization.Charting.Chart
@@ -203,4 +226,6 @@ Partial Class StockPriceChart
     Friend WithEvents chk25 As CheckBox
     Friend WithEvents chk75 As CheckBox
     Friend WithEvents chk200 As CheckBox
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents btnOneYear As Button
 End Class
