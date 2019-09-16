@@ -43,5 +43,11 @@ Public Class StockPriceBL
         End Using
     End Function
 
+    Public Function SelectFilter() As List(Of StockPriceBI)
+        Using da As New StockPriceDA
+            Return da.SelectFilter().Item2
+        End Using
+    End Function
+
 
 End Class

@@ -41,6 +41,9 @@ Partial Class StockPriceChart
         Me.chk200 = New System.Windows.Forms.CheckBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.btnOneYear = New System.Windows.Forms.Button()
+        Me.btnThreeYear = New System.Windows.Forms.Button()
+        Me.btnFiveYear = New System.Windows.Forms.Button()
+        Me.btnFilter = New System.Windows.Forms.Button()
         CType(Me.chartPrice, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvList, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,13 +58,13 @@ Partial Class StockPriceChart
         Me.chartPrice.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.chartPrice.Legends.Add(Legend1)
-        Me.chartPrice.Location = New System.Drawing.Point(206, 43)
+        Me.chartPrice.Location = New System.Drawing.Point(206, 81)
         Me.chartPrice.Name = "chartPrice"
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.chartPrice.Series.Add(Series1)
-        Me.chartPrice.Size = New System.Drawing.Size(914, 570)
+        Me.chartPrice.Size = New System.Drawing.Size(984, 532)
         Me.chartPrice.TabIndex = 3
         Me.chartPrice.Text = "Chart1"
         '
@@ -73,11 +76,11 @@ Partial Class StockPriceChart
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.dgvList.ColumnHeadersHeight = 40
         Me.dgvList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.証券コード, Me.企業名})
-        Me.dgvList.Location = New System.Drawing.Point(13, 43)
+        Me.dgvList.Location = New System.Drawing.Point(13, 81)
         Me.dgvList.Name = "dgvList"
         Me.dgvList.RowHeadersVisible = False
         Me.dgvList.RowTemplate.Height = 24
-        Me.dgvList.Size = New System.Drawing.Size(187, 570)
+        Me.dgvList.Size = New System.Drawing.Size(187, 532)
         Me.dgvList.TabIndex = 4
         '
         '証券コード
@@ -130,7 +133,7 @@ Partial Class StockPriceChart
         'chk5
         '
         Me.chk5.AutoSize = True
-        Me.chk5.Location = New System.Drawing.Point(597, 14)
+        Me.chk5.Location = New System.Drawing.Point(666, 14)
         Me.chk5.Name = "chk5"
         Me.chk5.Size = New System.Drawing.Size(37, 19)
         Me.chk5.TabIndex = 8
@@ -140,7 +143,7 @@ Partial Class StockPriceChart
         'chk25
         '
         Me.chk25.AutoSize = True
-        Me.chk25.Location = New System.Drawing.Point(640, 14)
+        Me.chk25.Location = New System.Drawing.Point(709, 14)
         Me.chk25.Name = "chk25"
         Me.chk25.Size = New System.Drawing.Size(45, 19)
         Me.chk25.TabIndex = 8
@@ -150,7 +153,7 @@ Partial Class StockPriceChart
         'chk75
         '
         Me.chk75.AutoSize = True
-        Me.chk75.Location = New System.Drawing.Point(691, 14)
+        Me.chk75.Location = New System.Drawing.Point(760, 14)
         Me.chk75.Name = "chk75"
         Me.chk75.Size = New System.Drawing.Size(45, 19)
         Me.chk75.TabIndex = 8
@@ -160,7 +163,7 @@ Partial Class StockPriceChart
         'chk200
         '
         Me.chk200.AutoSize = True
-        Me.chk200.Location = New System.Drawing.Point(742, 14)
+        Me.chk200.Location = New System.Drawing.Point(811, 14)
         Me.chk200.Name = "chk200"
         Me.chk200.Size = New System.Drawing.Size(53, 19)
         Me.chk200.TabIndex = 8
@@ -170,7 +173,7 @@ Partial Class StockPriceChart
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(802, 15)
+        Me.CheckBox1.Location = New System.Drawing.Point(871, 15)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(144, 19)
         Me.CheckBox1.TabIndex = 9
@@ -186,11 +189,41 @@ Partial Class StockPriceChart
         Me.btnOneYear.Text = "1年"
         Me.btnOneYear.UseVisualStyleBackColor = True
         '
+        'btnThreeYear
+        '
+        Me.btnThreeYear.Location = New System.Drawing.Point(545, 6)
+        Me.btnThreeYear.Name = "btnThreeYear"
+        Me.btnThreeYear.Size = New System.Drawing.Size(38, 32)
+        Me.btnThreeYear.TabIndex = 11
+        Me.btnThreeYear.Text = "3年"
+        Me.btnThreeYear.UseVisualStyleBackColor = True
+        '
+        'btnFiveYear
+        '
+        Me.btnFiveYear.Location = New System.Drawing.Point(589, 7)
+        Me.btnFiveYear.Name = "btnFiveYear"
+        Me.btnFiveYear.Size = New System.Drawing.Size(38, 32)
+        Me.btnFiveYear.TabIndex = 12
+        Me.btnFiveYear.Text = "5年"
+        Me.btnFiveYear.UseVisualStyleBackColor = True
+        '
+        'btnFilter
+        '
+        Me.btnFilter.Location = New System.Drawing.Point(13, 40)
+        Me.btnFilter.Name = "btnFilter"
+        Me.btnFilter.Size = New System.Drawing.Size(66, 32)
+        Me.btnFilter.TabIndex = 13
+        Me.btnFilter.Text = "フィルタ"
+        Me.btnFilter.UseVisualStyleBackColor = True
+        '
         'StockPriceChart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1132, 625)
+        Me.ClientSize = New System.Drawing.Size(1202, 625)
+        Me.Controls.Add(Me.btnFilter)
+        Me.Controls.Add(Me.btnFiveYear)
+        Me.Controls.Add(Me.btnThreeYear)
         Me.Controls.Add(Me.btnOneYear)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.chk200)
@@ -228,4 +261,7 @@ Partial Class StockPriceChart
     Friend WithEvents chk200 As CheckBox
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents btnOneYear As Button
+    Friend WithEvents btnThreeYear As Button
+    Friend WithEvents btnFiveYear As Button
+    Friend WithEvents btnFilter As Button
 End Class

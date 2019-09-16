@@ -312,7 +312,7 @@ Public Class StockPriceChart
             'Me.chartPrice.Series("price").Points.Add(dp)
             ChartSetValue(r.日付, r.調整後終値, "price")
 
-            If r.移動平均5乖離率 <= -0.05 AndAlso r.移動平均75乖離率 <= -0.2 Then
+            If r.移動平均5乖離率 <= -0.1 AndAlso r.移動平均75乖離率 <= -0.3 AndAlso r.移動平均200乖離率 <= -0.3 Then
                 ChartSetPoint(r.日付, r.調整後終値, "point")
             End If
 
@@ -439,5 +439,33 @@ Public Class StockPriceChart
         Me.dtp終了.Value = Now.Date
         Me.dtp開始.Value = Now.Date.AddYears(-1)
         Me.DisplayChart(dispCode)
+    End Sub
+    Private Sub BtnThreeYear_Click(sender As Object, e As EventArgs) Handles btnThreeYear.Click
+        Me.dtp終了.Value = Now.Date
+        Me.dtp開始.Value = Now.Date.AddYears(-3)
+        Me.DisplayChart(dispCode)
+    End Sub
+    Private Sub BtnFiveYear_Click(sender As Object, e As EventArgs) Handles btnFiveYear.Click
+        Me.dtp終了.Value = Now.Date
+        Me.dtp開始.Value = Now.Date.AddYears(-5)
+        Me.DisplayChart(dispCode)
+    End Sub
+
+    Private Sub BtnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
+        Dim bl As New StockPriceBL
+        Dim filter As List(Of StockPriceBI)
+        filter = bl.SelectFilter()
+        Dim filterList = (From p In filter
+                          Where Me.dtp開始.Value.Date <= p.日付 AndAlso p.日付 <= dtp終了.Value.Date
+                          Select p.証券コード).Distinct().ToList()
+
+        Dim filtered As List(Of StockPriceList)
+        filtered = (From t In csvList
+                    Join u In filterList
+                            On t.証券コード Equals u
+                    Select t).ToList()
+
+        Me.dgvList.DataSource = filtered
+
     End Sub
 End Class
